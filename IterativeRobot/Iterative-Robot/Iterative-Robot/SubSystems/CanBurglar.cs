@@ -7,6 +7,9 @@ using WPILib.Commands;
 
 namespace Iterative_Robot.SubSystems
 {
+    /// <summary>
+    /// Can-Burglar Subsystem
+    /// </summary>
     public class CanBurglar : Subsystem
     {
         private DoubleSolenoid grabber;

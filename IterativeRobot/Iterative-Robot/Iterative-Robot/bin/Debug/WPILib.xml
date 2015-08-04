@@ -3954,14 +3954,6 @@
           </include>
         </markup>
       </param>
-      <returns>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>returns</parameter>
-            <parameter>M:WPILib.CANTalon.SetForwardSoftLimitEnabled(System.Boolean)</parameter>
-          </include>
-        </markup>
-      </returns>
     </member>
     <member name="M:WPILib.CANTalon.SetIZone(System.Double)">
       <summary>
@@ -4177,14 +4169,6 @@
           </include>
         </markup>
       </param>
-      <returns>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>returns</parameter>
-            <parameter>M:WPILib.CANTalon.SetReverseSoftLimitEnabled(System.Boolean)</parameter>
-          </include>
-        </markup>
-      </returns>
     </member>
     <member name="M:WPILib.CANTalon.SetVoltageRampRate(System.Double)">
       <summary>
@@ -7021,13 +7005,8 @@
     <member name="F:WPILib.Encoder.IndexingType.ResetOnRisingEdge"></member>
     <member name="T:WPILib.FlowControl">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>T:WPILib.FlowControl</parameter>
-          </include>
-        </markup>
-      </summary>
+            Specifies the FlowControl settings for a <see cref="T:WPILib.SerialPort" /> object
+            </summary>
     </member>
     <member name="F:WPILib.FlowControl.None"></member>
     <member name="F:WPILib.FlowControl.XonXoff"></member>
@@ -7911,6 +7890,137 @@
     </member>
     <member name="F:WPILib.I2C.Port.Onboard"></member>
     <member name="F:WPILib.I2C.Port.MXP"></member>
+    <member name="T:WPILib.InterruptableSensorBase">
+      <summary>
+            Base for sensors to be used with interrupts.
+            </summary>
+    </member>
+    <member name="M:WPILib.InterruptableSensorBase.#ctor">
+      <summary>
+            Creates a new <see cref="T:WPILib.InterruptableSensorBase" />.
+            </summary>
+    </member>
+    <member name="M:WPILib.InterruptableSensorBase.AllocateInterrupts(System.Boolean)">
+      <summary>
+            Allocate the interrupt.
+            </summary>
+      <param name="watcher">True if the interrupt should be called in synchronous mode
+            where the user program will have to explicitly wait for the interrupt
+            to occur.</param>
+    </member>
+    <member name="P:WPILib.InterruptableSensorBase.AnalogTriggerForRouting">
+      <summary>
+            Is this an analog trigger.
+            </summary>
+    </member>
+    <member name="M:WPILib.InterruptableSensorBase.CancelInterrupts">
+      <summary>
+            Cancel interrupts on this device.
+            </summary>
+    </member>
+    <member name="P:WPILib.InterruptableSensorBase.ChannelForRouting">
+      <summary>
+            Get the channel routing number.
+            </summary>
+    </member>
+    <member name="M:WPILib.InterruptableSensorBase.DisableInterrupts">
+      <summary>
+            Disable Interrupts without deallocating structures.
+            </summary>
+    </member>
+    <member name="M:WPILib.InterruptableSensorBase.Dispose">
+      <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+    </member>
+    <member name="M:WPILib.InterruptableSensorBase.EnableInterrupts">
+      <summary>
+            Enable interrupts to occur on this input.
+            </summary>
+    </member>
+    <member name="P:WPILib.InterruptableSensorBase.InterruptIndex">
+      <summary>
+            Gets the index of the Interrupt
+            </summary>
+    </member>
+    <member name="F:WPILib.InterruptableSensorBase.m_interrupt">
+      <summary>
+            The interrupt resource.
+            </summary>
+    </member>
+    <member name="F:WPILib.InterruptableSensorBase.m_interruptIndex">
+      <summary>
+            The index of the interrupt
+            </summary>
+    </member>
+    <member name="F:WPILib.InterruptableSensorBase.m_isSynchronousInterrupt">
+      <summary>
+            Flags if the interrupt being allocated is synchronous.
+            </summary>
+    </member>
+    <member name="P:WPILib.InterruptableSensorBase.ModuleForRouting">
+      <summary>
+            Get the module routing number.
+            </summary>
+    </member>
+    <member name="M:WPILib.InterruptableSensorBase.ReadFallingTimestanp">
+      <summary>
+            Return the timestamp for the falling interrupt that occurred most recently.
+            </summary>
+      <returns>Timestamp in seconds since boot.</returns>
+    </member>
+    <member name="M:WPILib.InterruptableSensorBase.ReadRisingTimestanp">
+      <summary>
+            Return the timestamp for the rising interrupt that occurred most recently.
+            </summary>
+      <returns>Timestamp in seconds since boot.</returns>
+    </member>
+    <member name="M:WPILib.InterruptableSensorBase.RequestInterrupts">
+      <summary>
+            Requests one of the 8 interrupts synchronously on this input.
+            </summary>
+    </member>
+    <member name="M:WPILib.InterruptableSensorBase.RequestInterrupts(System.Action)">
+      <summary>
+            Requests one of the 8 interrupts asynchronously on this input.
+            </summary>
+      <param name="handler">The callback that will be called whenever 
+            there is an interrupt on this device.</param>
+    </member>
+    <member name="M:WPILib.InterruptableSensorBase.RequestInterrupts(System.Action{System.UInt32,System.Object},System.Object)">
+      <summary>
+            Requests one of the 8 interrupts asynchronously on this input.
+            </summary>
+      <param name="handler">The callback that will be called whenever 
+            there is an interrupt on this device.</param>
+      <param name="param">The object returned when the interrupt occurs.</param>
+    </member>
+    <member name="F:WPILib.InterruptableSensorBase.s_interrupts">
+      <summary>
+            Resource manager
+            </summary>
+    </member>
+    <member name="M:WPILib.InterruptableSensorBase.SetUpSourceEdge(System.Boolean,System.Boolean)">
+      <summary>
+            Set which edge to trigger interrupts on.
+            </summary>
+      <param name="risingEdge">True to interrupt on the rising edge</param>
+      <param name="fallingEdge">True to interrupt on the falling edge</param>
+    </member>
+    <member name="M:WPILib.InterruptableSensorBase.WaitForInterrupt(System.Double)">
+      <summary>
+            In synchronous mode, wait for the defined interrupt to occur.
+            </summary>
+      <param name="timeout">Timeout in seconds</param>
+      <returns>The <see cref="T:WPILib.WaitResult" /> of the interrupt</returns>
+    </member>
+    <member name="M:WPILib.InterruptableSensorBase.WaitForInterrupt(System.Double,System.Boolean)">
+      <summary>
+            In synchronous mode, wait for the defined interrupt to occur.
+            </summary>
+      <param name="timeout">Timeout in seconds</param>
+      <param name="ignorePrevious">If true, ignore previous interrupts that 
+            happened before this was called.</param>
+      <returns>The <see cref="T:WPILib.WaitResult" /> of the interrupt</returns>
+    </member>
     <member name="T:WPILib.IterativeRobot">
       <summary>
             Implements a iterative robot framework, extending from <see cref="T:WPILib.RobotBase" />.
@@ -8776,8 +8886,14 @@
             Enable/disable motor safety for this device. </summary>
     </member>
     <member name="T:WPILib.MotorType">
-      <summary>The location of a motor on the robot for the purpose of driving.
-            </summary>
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:WPILib.MotorType</parameter>
+          </include>
+        </markup>
+      </summary>
     </member>
     <member name="F:WPILib.MotorType.FrontLeft"></member>
     <member name="F:WPILib.MotorType.FrontRight"></member>
@@ -8843,13 +8959,8 @@
     </member>
     <member name="T:WPILib.Parity">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>T:WPILib.Parity</parameter>
-          </include>
-        </markup>
-      </summary>
+            Specifies the parity bit for a <see cref="T:WPILib.SerialPort" /> object.
+            </summary>
     </member>
     <member name="F:WPILib.Parity.None"></member>
     <member name="F:WPILib.Parity.Odd"></member>
@@ -9595,13 +9706,8 @@
     <member name="F:WPILib.PIDController.ToleranceType.NoTolerance"></member>
     <member name="T:WPILib.Port">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>T:WPILib.Port</parameter>
-          </include>
-        </markup>
-      </summary>
+            Specifies the serial port to use on the RoboRIO.
+            </summary>
     </member>
     <member name="F:WPILib.Port.Onboard"></member>
     <member name="F:WPILib.Port.MXP"></member>
@@ -9949,24 +10055,6 @@
         </markup>
       </returns>
     </member>
-    <member name="M:WPILib.Preferences.GetInstance">
-      <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.Preferences.GetInstance</parameter>
-          </include>
-        </markup>
-      </summary>
-      <returns>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>returns</parameter>
-            <parameter>M:WPILib.Preferences.GetInstance</parameter>
-          </include>
-        </markup>
-      </returns>
-    </member>
     <member name="M:WPILib.Preferences.GetInt(System.String,System.Int32)">
       <summary>
         <markup>
@@ -10075,15 +10163,15 @@
         </markup>
       </returns>
     </member>
+    <member name="P:WPILib.Preferences.Instance">
+      <summary>
+            Returns the preferences instance.
+            </summary>
+    </member>
     <member name="P:WPILib.Preferences.Keys">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>P:WPILib.Preferences.Keys</parameter>
-          </include>
-        </markup>
-      </summary>
+            Gets a list of the Keys
+            </summary>
     </member>
     <member name="M:WPILib.Preferences.PutBoolean(System.String,System.Boolean)">
       <summary>
@@ -10227,31 +10315,13 @@
     </member>
     <member name="M:WPILib.Preferences.PutString(System.String,System.String)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.Preferences.PutString(System.String,System.String)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="key">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>key</parameter>
-            <parameter>M:WPILib.Preferences.PutString(System.String,System.String)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="value">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>value</parameter>
-            <parameter>M:WPILib.Preferences.PutString(System.String,System.String)</parameter>
-          </include>
-        </markup>
-      </param>
+            Puts the given string into the preferences table.
+            </summary>
+      <param name="key">The key to write to</param>
+      <param name="value">The value to set</param>
+      <exception cref="T:System.ArgumentNullException">If the value is null</exception>
+      <exception cref="T:System.ArgumentOutOfRangeException">If the value contains a quotation mark</exception>
+      <exception cref="T:WPILib.Preferences.ImproperPreferenceKeyException">If the key contains any white space of an equals sign</exception>
     </member>
     <member name="M:WPILib.Preferences.Read">
       <summary>
@@ -10594,13 +10664,8 @@
     </member>
     <member name="P:WPILib.PWMSpeedController.Inverted">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>P:WPILib.PWMSpeedController.Inverted</parameter>
-          </include>
-        </markup>
-      </summary>
+            Inverts the direction of the motors rotation.
+            </summary>
     </member>
     <member name="M:WPILib.PWMSpeedController.PidWrite(System.Double)">
       <summary>
@@ -10817,13 +10882,8 @@
     </member>
     <member name="M:WPILib.RobotBase.InitializeHardwareConfiguration">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotBase.InitializeHardwareConfiguration</parameter>
-          </include>
-        </markup>
-      </summary>
+            Common initialization for all robot programs.
+            </summary>
     </member>
     <member name="P:WPILib.RobotBase.IsAutonomous">
       <summary>
@@ -10912,433 +10972,92 @@
     </member>
     <member name="M:WPILib.RobotBase.Main(System.Reflection.Assembly,System.Type)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotBase.Main(System.Reflection.Assembly,System.Type)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="robotAssembly">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>robotAssembly</parameter>
-            <parameter>M:WPILib.RobotBase.Main(System.Reflection.Assembly,System.Type)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="robotType">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>robotType</parameter>
-            <parameter>M:WPILib.RobotBase.Main(System.Reflection.Assembly,System.Type)</parameter>
-          </include>
-        </markup>
-      </param>
+            Starting point for robot applications. You can provide either an assembly, or a type. 
+            If passed a type, it takes priority.
+            </summary>
+      <param name="robotAssembly">The assembly the main robot class is located in.</param>
+      <param name="robotType">The main robot class type</param>
     </member>
     <member name="M:WPILib.RobotBase.Prestart">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotBase.Prestart</parameter>
-          </include>
-        </markup>
-      </summary>
+            This function is called right before <see cref="M:WPILib.RobotBase.StartCompetition" /></summary>
     </member>
     <member name="M:WPILib.RobotBase.StartCompetition">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotBase.StartCompetition</parameter>
-          </include>
-        </markup>
-      </summary>
+            This function is called by the initializer to start the main loop.
+            </summary>
     </member>
     <member name="T:WPILib.RobotDrive">
       <summary>
-            Simple abstraction for handing robot drivetrains.
+            Utility class for handling robot drive based on a defined motor configuration.
             </summary>
     </member>
     <member name="M:WPILib.RobotDrive.#ctor(System.Int32,System.Int32)">
       <summary>
-        <markup>
-          <include item="SMCAutoDocConstructor">
-            <parameter>WPILib.RobotDrive</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="leftMotorChannel">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>leftMotorChannel</parameter>
-            <parameter>M:WPILib.RobotDrive.#ctor(System.Int32,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rightMotorChannel">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rightMotorChannel</parameter>
-            <parameter>M:WPILib.RobotDrive.#ctor(System.Int32,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
+            Constructor for RobotDrive with 2 motors specified with channel numbers.
+            </summary>
+      <param name="leftMotorChannel">The PWM channel number that drives the left motor</param>
+      <param name="rightMotorChannel">The PWM channel number that drives the right motor</param>
     </member>
     <member name="M:WPILib.RobotDrive.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
       <summary>
-        <markup>
-          <include item="SMCAutoDocConstructor">
-            <parameter>WPILib.RobotDrive</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="frontLeftMotor">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>frontLeftMotor</parameter>
-            <parameter>M:WPILib.RobotDrive.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rearLeftMotor">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rearLeftMotor</parameter>
-            <parameter>M:WPILib.RobotDrive.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="frontRightMotor">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>frontRightMotor</parameter>
-            <parameter>M:WPILib.RobotDrive.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rearRightMotor">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rearRightMotor</parameter>
-            <parameter>M:WPILib.RobotDrive.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
+            Constructor for RobotDrive with 4 motors specified with channel numbers.
+            </summary>
+      <param name="frontLeftMotor">The PWM Channel that drives the Front Left Motor</param>
+      <param name="rearLeftMotor">The PWM Channel that drives the Rear Left Motor</param>
+      <param name="frontRightMotor">The PWM Channel that drives the Front Right Motor</param>
+      <param name="rearRightMotor">The PWM Channel that drives the Rear Right Motor</param>
     </member>
     <member name="M:WPILib.RobotDrive.#ctor(WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController)">
       <summary>
-        <markup>
-          <include item="SMCAutoDocConstructor">
-            <parameter>WPILib.RobotDrive</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="leftMotor">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>leftMotor</parameter>
-            <parameter>M:WPILib.RobotDrive.#ctor(WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rightMotor">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rightMotor</parameter>
-            <parameter>M:WPILib.RobotDrive.#ctor(WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController)</parameter>
-          </include>
-        </markup>
-      </param>
+            Constructor for RobotDrive with 2 motors specified as <see cref="T:WPILib.Interfaces.ISpeedController" /> objects.
+            </summary>
+      <param name="leftMotor">The <see cref="T:WPILib.Interfaces.ISpeedController" /> controlling the Left Motor</param>
+      <param name="rightMotor">The <see cref="T:WPILib.Interfaces.ISpeedController" /> controlling the Right Motor</param>
     </member>
     <member name="M:WPILib.RobotDrive.#ctor(WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController)">
       <summary>
-        <markup>
-          <include item="SMCAutoDocConstructor">
-            <parameter>WPILib.RobotDrive</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="frontLeftMotor">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>frontLeftMotor</parameter>
-            <parameter>M:WPILib.RobotDrive.#ctor(WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rearLeftMotor">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rearLeftMotor</parameter>
-            <parameter>M:WPILib.RobotDrive.#ctor(WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="frontRightMotor">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>frontRightMotor</parameter>
-            <parameter>M:WPILib.RobotDrive.#ctor(WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rearRightMotor">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rearRightMotor</parameter>
-            <parameter>M:WPILib.RobotDrive.#ctor(WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController,WPILib.Interfaces.ISpeedController)</parameter>
-          </include>
-        </markup>
-      </param>
+            Constructor for RobotDrive with 4 motors specified as <see cref="T:WPILib.Interfaces.ISpeedController" /> objects.
+            </summary>
+      <param name="frontLeftMotor">The <see cref="T:WPILib.Interfaces.ISpeedController" /> controlling the Front Left Motor</param>
+      <param name="rearLeftMotor">The <see cref="T:WPILib.Interfaces.ISpeedController" /> controlling the Rear Left Motor</param>
+      <param name="frontRightMotor">The <see cref="T:WPILib.Interfaces.ISpeedController" /> controlling the Front Right Motor</param>
+      <param name="rearRightMotor">The <see cref="T:WPILib.Interfaces.ISpeedController" /> controlling the Rear Right Motor</param>
     </member>
     <member name="P:WPILib.RobotDrive.Alive">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>P:WPILib.RobotDrive.Alive</parameter>
-          </include>
-        </markup>
-      </summary>
-    </member>
-    <member name="M:WPILib.RobotDrive.ArcadeDrive(System.Double,System.Double)">
-      <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="moveValue">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>moveValue</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rotateValue">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rotateValue</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
+            Gets whether the motor is alive.
+            </summary>
     </member>
     <member name="M:WPILib.RobotDrive.ArcadeDrive(System.Double,System.Double,System.Boolean)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(System.Double,System.Double,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="moveValue">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>moveValue</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(System.Double,System.Double,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rotateValue">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rotateValue</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(System.Double,System.Double,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="squaredInputs">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>squaredInputs</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(System.Double,System.Double,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-    </member>
-    <member name="M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID)">
-      <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="stick">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>stick</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID)</parameter>
-          </include>
-        </markup>
-      </param>
+            Provides arcade style driving for the robot.
+            </summary>
+      <param name="moveValue">The value to use for forward/backwards</param>
+      <param name="rotateValue">The value to use to rotate left/right</param>
+      <param name="squaredInputs">If this setting is true, it decreases the sensitvity at lower speeds.</param>
     </member>
     <member name="M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Boolean)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="stick">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>stick</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="squaredInputs">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>squaredInputs</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-    </member>
-    <member name="M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32)">
-      <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="moveStick">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>moveStick</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="moveAxis">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>moveAxis</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rotateStick">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rotateStick</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rotateAxis">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rotateAxis</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
+            Provides arcade style driving for the robot.
+            </summary>
+      <param name="stick">The joystick to use for drving. Y-axis will be forward/backwards, and X-axis
+            will be rotation.</param>
+      <param name="squaredInputs">If this setting is true, it decreases the sensitvity at lower speeds.</param>
     </member>
     <member name="M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32,System.Boolean)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="moveStick">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>moveStick</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="moveAxis">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>moveAxis</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rotateStick">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rotateStick</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rotateAxis">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rotateAxis</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="squaredInputs">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>squaredInputs</parameter>
-            <parameter>M:WPILib.RobotDrive.ArcadeDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
+            Provides arcade style driving for the robot.
+            </summary>
+      <param name="moveStick">The Joystick object that represents the forward/backward direction</param>
+      <param name="moveAxis">The axis on the moveStick to use.</param>
+      <param name="rotateStick">The Joystick object that represents the rotation value</param>
+      <param name="rotateAxis">The axis on the rotationStick to use.</param>
+      <param name="squaredInputs">If this setting is true, it decreases the sensitvity at lower speeds.</param>
     </member>
     <member name="P:WPILib.RobotDrive.CANJaguarSyncGroup">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>P:WPILib.RobotDrive.CANJaguarSyncGroup</parameter>
-          </include>
-        </markup>
-      </summary>
+            Sets the sync group for the motor controllers if they are <see cref="T:WPILib.CANJaguar">CANJaguars</see></summary>
     </member>
     <member name="F:WPILib.RobotDrive.DefaultExpirationTime">
       <summary>
@@ -11372,105 +11091,30 @@
     </member>
     <member name="P:WPILib.RobotDrive.Description">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>P:WPILib.RobotDrive.Description</parameter>
-          </include>
-        </markup>
-      </summary>
+            Gets a description for the Safe Motor Object.
+            </summary>
     </member>
     <member name="M:WPILib.RobotDrive.Dispose">
-      <summary>
-        <markup>
-          <include item="SMCAutoDocDispose">
-            <parameter>WPILib.RobotDrive</parameter>
-          </include>
-        </markup>
-      </summary>
+      <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
     </member>
     <member name="M:WPILib.RobotDrive.Drive(System.Double,System.Double)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.Drive(System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="outputMagnitude">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>outputMagnitude</parameter>
-            <parameter>M:WPILib.RobotDrive.Drive(System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="curve">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>curve</parameter>
-            <parameter>M:WPILib.RobotDrive.Drive(System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
+            Drive the motors at a specified "speed" and "curve".
+            </summary>
+      <param name="outputMagnitude">The forward component of the magnitude to send to the motors.</param>
+      <param name="curve">The rate of turn, constant for different forward speeds.c</param>
     </member>
     <member name="P:WPILib.RobotDrive.Expiration">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>P:WPILib.RobotDrive.Expiration</parameter>
-          </include>
-        </markup>
-      </summary>
-    </member>
-    <member name="M:WPILib.RobotDrive.GetNumMotors">
-      <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.GetNumMotors</parameter>
-          </include>
-        </markup>
-      </summary>
-      <returns>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>returns</parameter>
-            <parameter>M:WPILib.RobotDrive.GetNumMotors</parameter>
-          </include>
-        </markup>
-      </returns>
+            Gets or Sets the expiration time of the motor in seconds.
+            </summary>
     </member>
     <member name="M:WPILib.RobotDrive.Limit(System.Double)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.Limit(System.Double)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="num">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>num</parameter>
-            <parameter>M:WPILib.RobotDrive.Limit(System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
-      <returns>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>returns</parameter>
-            <parameter>M:WPILib.RobotDrive.Limit(System.Double)</parameter>
-          </include>
-        </markup>
-      </returns>
+            Limit motor values to the -1.0 to +1.0 ranges
+            </summary>
+      <param name="num">The number to limit</param>
+      <returns>The limited value</returns>
     </member>
     <member name="F:WPILib.RobotDrive.m_allocatedSpeedControllers">
       <summary>
@@ -11564,160 +11208,44 @@
     </member>
     <member name="P:WPILib.RobotDrive.MaxOutput">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>P:WPILib.RobotDrive.MaxOutput</parameter>
-          </include>
-        </markup>
-      </summary>
+            Sets the maximum output allowed to be outputed by the drive.
+            </summary>
     </member>
     <member name="M:WPILib.RobotDrive.MecanumDrive_Cartesian(System.Double,System.Double,System.Double,System.Double)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.MecanumDrive_Cartesian(System.Double,System.Double,System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="x">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>x</parameter>
-            <parameter>M:WPILib.RobotDrive.MecanumDrive_Cartesian(System.Double,System.Double,System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="y">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>y</parameter>
-            <parameter>M:WPILib.RobotDrive.MecanumDrive_Cartesian(System.Double,System.Double,System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rotation">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rotation</parameter>
-            <parameter>M:WPILib.RobotDrive.MecanumDrive_Cartesian(System.Double,System.Double,System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="gyroAngle">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>gyroAngle</parameter>
-            <parameter>M:WPILib.RobotDrive.MecanumDrive_Cartesian(System.Double,System.Double,System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
+            Cartesian drive method for Mecanum wheeled robots
+            </summary>
+      <param name="x">The speed that the robot should drive in the X direction.</param>
+      <param name="y">The speed that the robbot should drive in the Y direction.</param>
+      <param name="rotation">The rate of rotation for the robot that is independed of translation.</param>
+      <param name="gyroAngle">The current angle reading from the gyro. Use this to implement field-oriented controls.</param>
     </member>
     <member name="M:WPILib.RobotDrive.mecanumDrive_Polar(System.Double,System.Double,System.Double)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.mecanumDrive_Polar(System.Double,System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="magnitude">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>magnitude</parameter>
-            <parameter>M:WPILib.RobotDrive.mecanumDrive_Polar(System.Double,System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="direction">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>direction</parameter>
-            <parameter>M:WPILib.RobotDrive.mecanumDrive_Polar(System.Double,System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rotation">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rotation</parameter>
-            <parameter>M:WPILib.RobotDrive.mecanumDrive_Polar(System.Double,System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
+            Polar drive method for Mecanum wheeled robots.
+            </summary>
+      <param name="magnitude">The magnitude vector</param>
+      <param name="direction">The direction vector to drive in.</param>
+      <param name="rotation">The rate of rotation. This is independant from translation.</param>
     </member>
-    <member name="M:WPILib.RobotDrive.Normalize(System.Double[])">
+    <member name="M:WPILib.RobotDrive.Normalize(System.Collections.Generic.IList{System.Double})">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.Normalize(System.Double[])</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="wheelSpeeds">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>wheelSpeeds</parameter>
-            <parameter>M:WPILib.RobotDrive.Normalize(System.Double[])</parameter>
-          </include>
-        </markup>
-      </param>
+            Normalized all wheel speeds if the magnitude of any wheel is greater the 1.0.
+            </summary>
+      <param name="wheelSpeeds">The wheel speeds to normalize</param>
     </member>
-    <member name="M:WPILib.RobotDrive.RotateVector(System.Double,System.Double,System.Double)">
+    <member name="P:WPILib.RobotDrive.NumMotors">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.RotateVector(System.Double,System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="x">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>x</parameter>
-            <parameter>M:WPILib.RobotDrive.RotateVector(System.Double,System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="y">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>y</parameter>
-            <parameter>M:WPILib.RobotDrive.RotateVector(System.Double,System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="angle">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>angle</parameter>
-            <parameter>M:WPILib.RobotDrive.RotateVector(System.Double,System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
-      <returns>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>returns</parameter>
-            <parameter>M:WPILib.RobotDrive.RotateVector(System.Double,System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </returns>
+            Gets the number of motors in the drive.
+            </summary>
+    </member>
+    <member name="M:WPILib.RobotDrive.RotateVector(System.Double@,System.Double@,System.Double)">
+      <summary>
+            Rotates a vector in Cartesian Space
+            </summary>
+      <param name="x">The X vector</param>
+      <param name="y">The Y vector</param>
+      <param name="angle">The angle to rotate in degrees</param>
     </member>
     <member name="F:WPILib.RobotDrive.s_arcadeRatioCurveReported">
       <summary>
@@ -11781,320 +11309,58 @@
     </member>
     <member name="P:WPILib.RobotDrive.SafetyEnabled">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>P:WPILib.RobotDrive.SafetyEnabled</parameter>
-          </include>
-        </markup>
-      </summary>
+            Gets or Sets whether safety is enabled.
+            </summary>
     </member>
     <member name="P:WPILib.RobotDrive.Sensitivity">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>P:WPILib.RobotDrive.Sensitivity</parameter>
-          </include>
-        </markup>
-      </summary>
+            Sets the turning sensitivity for the <see cref="M:WPILib.RobotDrive.Drive(System.Double,System.Double)" /> function.
+            </summary>
     </member>
     <member name="M:WPILib.RobotDrive.SetInvertedMotor(WPILib.MotorType,System.Boolean)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.SetInvertedMotor(WPILib.MotorType,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="motor">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>motor</parameter>
-            <parameter>M:WPILib.RobotDrive.SetInvertedMotor(WPILib.MotorType,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="isInverted">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>isInverted</parameter>
-            <parameter>M:WPILib.RobotDrive.SetInvertedMotor(WPILib.MotorType,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
+            Invert a motor direction
+            </summary>
+      <param name="motor">The motor index to invert</param>
+      <param name="isInverted">True if the motor should be inverted.</param>
     </member>
     <member name="M:WPILib.RobotDrive.SetLeftRightMotorOutputs(System.Double,System.Double)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.SetLeftRightMotorOutputs(System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="leftOutput">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>leftOutput</parameter>
-            <parameter>M:WPILib.RobotDrive.SetLeftRightMotorOutputs(System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rightOutput">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rightOutput</parameter>
-            <parameter>M:WPILib.RobotDrive.SetLeftRightMotorOutputs(System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
+            Sets the speed of the left and right drive motors
+            </summary>
+      <param name="leftOutput">The speed to send to the left side.</param>
+      <param name="rightOutput">The speed to send to the right side.</param>
     </member>
     <member name="M:WPILib.RobotDrive.StopMotor">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.StopMotor</parameter>
-          </include>
-        </markup>
-      </summary>
-    </member>
-    <member name="M:WPILib.RobotDrive.TankDrive(System.Double,System.Double)">
-      <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="leftValue">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>leftValue</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rightValue">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rightValue</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(System.Double,System.Double)</parameter>
-          </include>
-        </markup>
-      </param>
+            Stop the motor associated with this PWM object.
+            </summary>
     </member>
     <member name="M:WPILib.RobotDrive.TankDrive(System.Double,System.Double,System.Boolean)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(System.Double,System.Double,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="leftValue">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>leftValue</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(System.Double,System.Double,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rightValue">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rightValue</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(System.Double,System.Double,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="squaredInputs">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>squaredInputs</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(System.Double,System.Double,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-    </member>
-    <member name="M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32)">
-      <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="leftStick">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>leftStick</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="leftAxis">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>leftAxis</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rightStick">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rightStick</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rightAxis">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rightAxis</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
+            Provide tank style driving for the robot.
+            </summary>
+      <param name="leftValue">The value for the left side</param>
+      <param name="rightValue">The value for the right side</param>
+      <param name="squaredInputs">If this setting is true, it decreases the sensitvity at lower speeds.</param>
     </member>
     <member name="M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32,System.Boolean)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="leftStick">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>leftStick</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="leftAxis">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>leftAxis</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rightStick">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rightStick</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rightAxis">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rightAxis</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="squaredInputs">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>squaredInputs</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,System.Int32,WPILib.GenericHID,System.Int32,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-    </member>
-    <member name="M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,WPILib.GenericHID)">
-      <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,WPILib.GenericHID)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="leftStick">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>leftStick</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,WPILib.GenericHID)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rightStick">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rightStick</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,WPILib.GenericHID)</parameter>
-          </include>
-        </markup>
-      </param>
+            Provide tank style driving for the robot.
+            </summary>
+      <param name="leftStick">The joystick to use for the left side.</param>
+      <param name="leftAxis">The axis to select on the left joystick.</param>
+      <param name="rightStick">The joystick to use for the right side.</param>
+      <param name="rightAxis">The axis to select on the right joystick</param>
+      <param name="squaredInputs">If this setting is true, it decreases the sensitvity at lower speeds.</param>
     </member>
     <member name="M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,WPILib.GenericHID,System.Boolean)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,WPILib.GenericHID,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="leftStick">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>leftStick</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,WPILib.GenericHID,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="rightStick">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>rightStick</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,WPILib.GenericHID,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="squaredInputs">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>squaredInputs</parameter>
-            <parameter>M:WPILib.RobotDrive.TankDrive(WPILib.GenericHID,WPILib.GenericHID,System.Boolean)</parameter>
-          </include>
-        </markup>
-      </param>
+            Provide tank style driving for the robot.
+            </summary>
+      <param name="leftStick">The joystick to control the left side of the robot.</param>
+      <param name="rightStick">The joystick to control the right side of the robot.</param>
+      <param name="squaredInputs">If this setting is true, it decreases the sensitvity at lower speeds.</param>
     </member>
     <member name="T:WPILib.RobotState">
       <summary>
@@ -12362,7 +11628,7 @@
             </summary>
       <param name="channel">The channel number to check.</param>
     </member>
-    <member name="M:WPILib.SensorBase.CheckPdpChannel(System.Int32)">
+    <member name="M:WPILib.SensorBase.CheckPDPChannel(System.Int32)">
       <summary>
             Check that the power distribution channel number is valid.
             </summary>
@@ -12370,22 +11636,9 @@
     </member>
     <member name="M:WPILib.SensorBase.CheckPDPModule(System.Int32)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.SensorBase.CheckPDPModule(System.Int32)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="module">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>module</parameter>
-            <parameter>M:WPILib.SensorBase.CheckPDPModule(System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
+            Check that the PDP CAN ID is in valid.
+            </summary>
+      <param name="module">The CAN ID to check</param>
     </member>
     <member name="M:WPILib.SensorBase.CheckPwmChannel(System.Int32)">
       <summary>
@@ -12504,430 +11757,109 @@
             Driver for the serial ports onboard the RoboRIO.
             </summary>
     </member>
-    <member name="M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port)">
-      <summary>
-        <markup>
-          <include item="SMCAutoDocConstructor">
-            <parameter>WPILib.SerialPort</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="baudRate">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>baudRate</parameter>
-            <parameter>M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="port">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>port</parameter>
-            <parameter>M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port)</parameter>
-          </include>
-        </markup>
-      </param>
-    </member>
-    <member name="M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port,System.Int32)">
-      <summary>
-        <markup>
-          <include item="SMCAutoDocConstructor">
-            <parameter>WPILib.SerialPort</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="baudRate">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>baudRate</parameter>
-            <parameter>M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="port">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>port</parameter>
-            <parameter>M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="dataBits">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>dataBits</parameter>
-            <parameter>M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port,System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-    </member>
-    <member name="M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port,System.Int32,WPILib.Parity)">
-      <summary>
-        <markup>
-          <include item="SMCAutoDocConstructor">
-            <parameter>WPILib.SerialPort</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="baudRate">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>baudRate</parameter>
-            <parameter>M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port,System.Int32,WPILib.Parity)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="port">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>port</parameter>
-            <parameter>M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port,System.Int32,WPILib.Parity)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="dataBits">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>dataBits</parameter>
-            <parameter>M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port,System.Int32,WPILib.Parity)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="parity">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>parity</parameter>
-            <parameter>M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port,System.Int32,WPILib.Parity)</parameter>
-          </include>
-        </markup>
-      </param>
-    </member>
     <member name="M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port,System.Int32,WPILib.Parity,WPILib.StopBits)">
       <summary>
-        <markup>
-          <include item="SMCAutoDocConstructor">
-            <parameter>WPILib.SerialPort</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="baudRate">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>baudRate</parameter>
-            <parameter>M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port,System.Int32,WPILib.Parity,WPILib.StopBits)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="port">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>port</parameter>
-            <parameter>M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port,System.Int32,WPILib.Parity,WPILib.StopBits)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="dataBits">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>dataBits</parameter>
-            <parameter>M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port,System.Int32,WPILib.Parity,WPILib.StopBits)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="parity">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>parity</parameter>
-            <parameter>M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port,System.Int32,WPILib.Parity,WPILib.StopBits)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="stopBits">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>stopBits</parameter>
-            <parameter>M:WPILib.SerialPort.#ctor(System.Int32,WPILib.Port,System.Int32,WPILib.Parity,WPILib.StopBits)</parameter>
-          </include>
-        </markup>
-      </param>
+            Creates an instance of the Serial Port class.
+            </summary>
+      <param name="baudRate">The baud rate to configure the serial port at.</param>
+      <param name="port">The serial port to use.</param>
+      <param name="dataBits">The number of data bits per transfer, between 5 and 8</param>
+      <param name="parity">The type of parity checking to use</param>
+      <param name="stopBits">The number of stop bits to use</param>
     </member>
     <member name="P:WPILib.SerialPort.BytesReceived">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>P:WPILib.SerialPort.BytesReceived</parameter>
-          </include>
-        </markup>
-      </summary>
+            Gets the number of bytes current available to read from the serial port.
+            </summary>
     </member>
     <member name="M:WPILib.SerialPort.DisableTermination">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.SerialPort.DisableTermination</parameter>
-          </include>
-        </markup>
-      </summary>
+            Disables termination
+            </summary>
     </member>
     <member name="M:WPILib.SerialPort.Dispose">
-      <summary>
-        <markup>
-          <include item="SMCAutoDocDispose">
-            <parameter>WPILib.SerialPort</parameter>
-          </include>
-        </markup>
-      </summary>
+      <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
     </member>
     <member name="M:WPILib.SerialPort.EnableTermination">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.SerialPort.EnableTermination</parameter>
-          </include>
-        </markup>
-      </summary>
+            Enables termination with the default terminator '\n'.
+            </summary>
     </member>
     <member name="M:WPILib.SerialPort.EnableTermination(System.Char)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.SerialPort.EnableTermination(System.Char)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="terminator">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>terminator</parameter>
-            <parameter>M:WPILib.SerialPort.EnableTermination(System.Char)</parameter>
-          </include>
-        </markup>
-      </param>
+            Enables termination with the specified terminator
+            </summary>
+      <param name="terminator">The character to use for termination.</param>
     </member>
     <member name="P:WPILib.SerialPort.FlowControl">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>P:WPILib.SerialPort.FlowControl</parameter>
-          </include>
-        </markup>
-      </summary>
+            Sets the type of flow control to enable on this port.
+            </summary>
     </member>
     <member name="M:WPILib.SerialPort.Flush">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.SerialPort.Flush</parameter>
-          </include>
-        </markup>
-      </summary>
+            Force the output buffer to be written to the port.
+            </summary>
     </member>
     <member name="M:WPILib.SerialPort.Read(System.Int32)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.SerialPort.Read(System.Int32)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="count">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>count</parameter>
-            <parameter>M:WPILib.SerialPort.Read(System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <returns>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>returns</parameter>
-            <parameter>M:WPILib.SerialPort.Read(System.Int32)</parameter>
-          </include>
-        </markup>
-      </returns>
+            Read raw bytes out of the buffer.
+            </summary>
+      <param name="count">The maximum number of bytes to read.</param>
+      <returns>An array of the read bytes</returns>
     </member>
     <member name="P:WPILib.SerialPort.ReadBufferSize">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>P:WPILib.SerialPort.ReadBufferSize</parameter>
-          </include>
-        </markup>
-      </summary>
+            Sets the size of the input buffer.
+            </summary>
     </member>
     <member name="M:WPILib.SerialPort.ReadString">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.SerialPort.ReadString</parameter>
-          </include>
-        </markup>
-      </summary>
-      <returns>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>returns</parameter>
-            <parameter>M:WPILib.SerialPort.ReadString</parameter>
-          </include>
-        </markup>
-      </returns>
+            Reads a string out of the buffer, reading the full buffer.
+            </summary>
+      <returns>The read string</returns>
     </member>
     <member name="M:WPILib.SerialPort.ReadString(System.Int32)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.SerialPort.ReadString(System.Int32)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="count">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>count</parameter>
-            <parameter>M:WPILib.SerialPort.ReadString(System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <returns>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>returns</parameter>
-            <parameter>M:WPILib.SerialPort.ReadString(System.Int32)</parameter>
-          </include>
-        </markup>
-      </returns>
+            Reads a string out of the buffer.
+            </summary>
+      <param name="count">The number of characters to read into the string</param>
+      <returns>The read string</returns>
     </member>
     <member name="M:WPILib.SerialPort.Reset">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.SerialPort.Reset</parameter>
-          </include>
-        </markup>
-      </summary>
+            Reset the serial port driver to a know state.
+            </summary>
     </member>
     <member name="P:WPILib.SerialPort.Timeout">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>P:WPILib.SerialPort.Timeout</parameter>
-          </include>
-        </markup>
-      </summary>
+            Configures the timeout of the serial port.
+            </summary>
     </member>
     <member name="M:WPILib.SerialPort.Write(System.Byte[],System.Int32)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.SerialPort.Write(System.Byte[],System.Int32)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="buffer">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>buffer</parameter>
-            <parameter>M:WPILib.SerialPort.Write(System.Byte[],System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <param name="count">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>count</parameter>
-            <parameter>M:WPILib.SerialPort.Write(System.Byte[],System.Int32)</parameter>
-          </include>
-        </markup>
-      </param>
-      <returns>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>returns</parameter>
-            <parameter>M:WPILib.SerialPort.Write(System.Byte[],System.Int32)</parameter>
-          </include>
-        </markup>
-      </returns>
+            Write raw bytes to the serial port.
+            </summary>
+      <param name="buffer">The buffer of bytes to write.</param>
+      <param name="count">The maximum number of bytes to write.</param>
+      <returns>The number of bytes actually written to the port.</returns>
     </member>
     <member name="P:WPILib.SerialPort.WriteBufferMode">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>P:WPILib.SerialPort.WriteBufferMode</parameter>
-          </include>
-        </markup>
-      </summary>
+            Sets the flushing behavior of the output buffer
+            </summary>
     </member>
     <member name="P:WPILib.SerialPort.WriteBufferSize">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>P:WPILib.SerialPort.WriteBufferSize</parameter>
-          </include>
-        </markup>
-      </summary>
+            Sets the size of the output buffer.
+            </summary>
     </member>
     <member name="M:WPILib.SerialPort.WriteString(System.String)">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>M:WPILib.SerialPort.WriteString(System.String)</parameter>
-          </include>
-        </markup>
-      </summary>
-      <param name="data">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>param</parameter>
-            <parameter>data</parameter>
-            <parameter>M:WPILib.SerialPort.WriteString(System.String)</parameter>
-          </include>
-        </markup>
-      </param>
-      <returns>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>returns</parameter>
-            <parameter>M:WPILib.SerialPort.WriteString(System.String)</parameter>
-          </include>
-        </markup>
-      </returns>
+            Writes a string to the serial port
+            </summary>
+      <param name="data">The string to write to the serial port.</param>
+      <returns>The number of bytes written  to the port.</returns>
     </member>
     <member name="T:WPILib.Servo">
       <summary>
@@ -13400,13 +12332,8 @@
     <member name="F:WPILib.SPI.Port.MXP"></member>
     <member name="T:WPILib.StopBits">
       <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>T:WPILib.StopBits</parameter>
-          </include>
-        </markup>
-      </summary>
+            Specifies the number of stop bits used for a <see cref="T:WPILib.SerialPort" /> object.
+            </summary>
     </member>
     <member name="F:WPILib.StopBits.One"></member>
     <member name="F:WPILib.StopBits.OnePointFive"></member>
@@ -13882,15 +12809,24 @@
             Common initialization code called by all constructors.
             </summary>
     </member>
-    <member name="T:WPILib.WriteBufferMode">
+    <member name="T:WPILib.WaitResult">
       <summary>
         <markup>
           <include item="SMCMissingTag">
             <parameter>summary</parameter>
-            <parameter>T:WPILib.WriteBufferMode</parameter>
+            <parameter>T:WPILib.WaitResult</parameter>
           </include>
         </markup>
       </summary>
+    </member>
+    <member name="F:WPILib.WaitResult.Timeout"></member>
+    <member name="F:WPILib.WaitResult.RisingEdge"></member>
+    <member name="F:WPILib.WaitResult.FallingEdge"></member>
+    <member name="F:WPILib.WaitResult.Both"></member>
+    <member name="T:WPILib.WriteBufferMode">
+      <summary>
+            Specifies the WriteBufferMode for a <see cref="T:WPILib.SerialPort" /> object.
+            </summary>
     </member>
     <member name="F:WPILib.WriteBufferMode.FlushOnAccess"></member>
     <member name="F:WPILib.WriteBufferMode.FlushWhenFull"></member>
@@ -13908,7 +12844,7 @@
         </markup>
       </summary>
     </member>
-    <member name="M:WPILib.Buttons.Button.CanceWhenPressed(WPILib.Commands.Command)">
+    <member name="M:WPILib.Buttons.Button.CancelWhenPressed(WPILib.Commands.Command)">
       <summary>
             Cancel the command when the button is pressed.
             </summary>
@@ -14273,9 +13209,39 @@
       <param name="timeout">The time (in seconds) before this command "times out"</param>
       <exception cref="T:System.ArgumentOutOfRangeException">If given a negative timeout</exception>
     </member>
+    <member name="M:WPILib.Commands.Command._End">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:WPILib.Commands.Command._End</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:WPILib.Commands.Command._Execute">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:WPILib.Commands.Command._Execute</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
     <member name="M:WPILib.Commands.Command._Initialize">
       <summary>
             A shadow method called before <see cref="M:WPILib.Commands.Command.Initialize" /></summary>
+    </member>
+    <member name="M:WPILib.Commands.Command._Interrupted">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:WPILib.Commands.Command._Interrupted</parameter>
+          </include>
+        </markup>
+      </summary>
     </member>
     <member name="M:WPILib.Commands.Command.Cancel">
       <summary>
@@ -16851,137 +15817,6 @@
             Returns the name of the subtable of SmartDashboard that the Sendable object will use.
             </summary>
     </member>
-    <member name="T:WPILib.Interfaces.InterruptableSensorBase">
-      <summary>
-            Base for sensors to be used with interrupts.
-            </summary>
-    </member>
-    <member name="M:WPILib.Interfaces.InterruptableSensorBase.#ctor">
-      <summary>
-            Creates a new <see cref="T:WPILib.Interfaces.InterruptableSensorBase" />.
-            </summary>
-    </member>
-    <member name="M:WPILib.Interfaces.InterruptableSensorBase.AllocateInterrupts(System.Boolean)">
-      <summary>
-            Allocate the interrupt.
-            </summary>
-      <param name="watcher">True if the interrupt should be called in synchronous mode
-            where the user program will have to explicitly wait for the interrupt
-            to occur.</param>
-    </member>
-    <member name="P:WPILib.Interfaces.InterruptableSensorBase.AnalogTriggerForRouting">
-      <summary>
-            Is this an analog trigger.
-            </summary>
-    </member>
-    <member name="M:WPILib.Interfaces.InterruptableSensorBase.CancelInterrupts">
-      <summary>
-            Cancel interrupts on this device.
-            </summary>
-    </member>
-    <member name="P:WPILib.Interfaces.InterruptableSensorBase.ChannelForRouting">
-      <summary>
-            Get the channel routing number.
-            </summary>
-    </member>
-    <member name="M:WPILib.Interfaces.InterruptableSensorBase.DisableInterrupts">
-      <summary>
-            Disable Interrupts without deallocating structures.
-            </summary>
-    </member>
-    <member name="M:WPILib.Interfaces.InterruptableSensorBase.Dispose">
-      <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
-    </member>
-    <member name="M:WPILib.Interfaces.InterruptableSensorBase.EnableInterrupts">
-      <summary>
-            Enable interrupts to occur on this input.
-            </summary>
-    </member>
-    <member name="P:WPILib.Interfaces.InterruptableSensorBase.InterruptIndex">
-      <summary>
-            Gets the index of the Interrupt
-            </summary>
-    </member>
-    <member name="F:WPILib.Interfaces.InterruptableSensorBase.m_interrupt">
-      <summary>
-            The interrupt resource.
-            </summary>
-    </member>
-    <member name="F:WPILib.Interfaces.InterruptableSensorBase.m_interruptIndex">
-      <summary>
-            The index of the interrupt
-            </summary>
-    </member>
-    <member name="F:WPILib.Interfaces.InterruptableSensorBase.m_isSynchronousInterrupt">
-      <summary>
-            Flags if the interrupt being allocated is synchronous.
-            </summary>
-    </member>
-    <member name="P:WPILib.Interfaces.InterruptableSensorBase.ModuleForRouting">
-      <summary>
-            Get the module routing number.
-            </summary>
-    </member>
-    <member name="M:WPILib.Interfaces.InterruptableSensorBase.ReadFallingTimestanp">
-      <summary>
-            Return the timestamp for the falling interrupt that occurred most recently.
-            </summary>
-      <returns>Timestamp in seconds since boot.</returns>
-    </member>
-    <member name="M:WPILib.Interfaces.InterruptableSensorBase.ReadRisingTimestanp">
-      <summary>
-            Return the timestamp for the rising interrupt that occurred most recently.
-            </summary>
-      <returns>Timestamp in seconds since boot.</returns>
-    </member>
-    <member name="M:WPILib.Interfaces.InterruptableSensorBase.RequestInterrupts">
-      <summary>
-            Requests one of the 8 interrupts synchronously on this input.
-            </summary>
-    </member>
-    <member name="M:WPILib.Interfaces.InterruptableSensorBase.RequestInterrupts(System.Action)">
-      <summary>
-            Requests one of the 8 interrupts asynchronously on this input.
-            </summary>
-      <param name="handler">The callback that will be called whenever 
-            there is an interrupt on this device.</param>
-    </member>
-    <member name="M:WPILib.Interfaces.InterruptableSensorBase.RequestInterrupts(System.Action{System.UInt32,System.Object},System.Object)">
-      <summary>
-            Requests one of the 8 interrupts asynchronously on this input.
-            </summary>
-      <param name="handler">The callback that will be called whenever 
-            there is an interrupt on this device.</param>
-      <param name="param">The object returned when the interrupt occurs.</param>
-    </member>
-    <member name="F:WPILib.Interfaces.InterruptableSensorBase.s_interrupts">
-      <summary>
-            Resource manager
-            </summary>
-    </member>
-    <member name="M:WPILib.Interfaces.InterruptableSensorBase.SetUpSourceEdge(System.Boolean,System.Boolean)">
-      <summary>
-            Set which edge to trigger interrupts on.
-            </summary>
-      <param name="risingEdge">True to interrupt on the rising edge</param>
-      <param name="fallingEdge">True to interrupt on the falling edge</param>
-    </member>
-    <member name="M:WPILib.Interfaces.InterruptableSensorBase.WaitForInterrupt(System.Double)">
-      <summary>
-            In synchronous mode, wait for the defined interrupt to occur.
-            </summary>
-      <param name="timeout">Timeout in seconds</param>
-      <returns>The <see cref="T:WPILib.Interfaces.WaitResult" /> of the interrupt</returns>
-    </member>
-    <member name="M:WPILib.Interfaces.InterruptableSensorBase.WaitForInterrupt(System.Double,System.Boolean)">
-      <summary>
-            In synchronous mode, wait for the defined interrupt to occur.
-            </summary>
-      <param name="timeout">Timeout in seconds</param>
-      <param name="ignorePrevious">If true, ignore previous interrupts that 
-            happened before this was called.</param>
-      <returns>The <see cref="T:WPILib.Interfaces.WaitResult" /> of the interrupt</returns>
-    </member>
     <member name="T:WPILib.Interfaces.IPIDOutput">
       <summary>
             This interface allows <see cref="T:WPILib.PIDController" /> to write it's results to its output.
@@ -17100,20 +15935,6 @@
     <member name="F:WPILib.Interfaces.PIDSourceParameter.Distance"></member>
     <member name="F:WPILib.Interfaces.PIDSourceParameter.Rate"></member>
     <member name="F:WPILib.Interfaces.PIDSourceParameter.Angle"></member>
-    <member name="T:WPILib.Interfaces.WaitResult">
-      <summary>
-        <markup>
-          <include item="SMCMissingTag">
-            <parameter>summary</parameter>
-            <parameter>T:WPILib.Interfaces.WaitResult</parameter>
-          </include>
-        </markup>
-      </summary>
-    </member>
-    <member name="F:WPILib.Interfaces.WaitResult.Timeout"></member>
-    <member name="F:WPILib.Interfaces.WaitResult.RisingEdge"></member>
-    <member name="F:WPILib.Interfaces.WaitResult.FallingEdge"></member>
-    <member name="F:WPILib.Interfaces.WaitResult.Both"></member>
     <member name="T:WPILib.Internal.HardwareHLUsageReporting">
       <summary>
             The RoboRIO Usage Reporting implementation

@@ -7,6 +7,9 @@ using WPILib;
 
 namespace Iterative_Robot.Team_Code
 {
+    /// <summary>
+    /// Potentioneter wrapped in a class implementing SWave_IPositionSensor for use in the SWave_PIDSubsystem Class
+    /// </summary>
     class SWave_Potentiometer : AnalogPotentiometer, SWave_IPositionSensor
     {
         public SWave_Potentiometer(AnalogInput input) : base(input) { }

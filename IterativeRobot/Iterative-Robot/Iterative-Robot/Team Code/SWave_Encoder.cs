@@ -6,6 +6,9 @@ using WPILib;
 
 namespace Iterative_Robot.Team_Code
 {
+    /// <summary>
+    /// Encoder class wrapped in a class implementing SWave_IPositionSensor for use in the SWave_PIDSubsystem class.
+    /// </summary>
     class SWave_Encoder : Encoder, SWave_IPositionSensor
     {
         public SWave_Encoder(DigitalSource Asource, DigitalSource Bsource) : base(Asource, Bsource) { }

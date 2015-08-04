@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Iterative_Robot.Team_Code
 {
+    /// <summary>
+    /// Toggle Latch
+    /// </summary>
     class SWave_Toggle
     {
         private bool _state;

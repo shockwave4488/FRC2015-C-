@@ -6,9 +6,14 @@ using WPILib.Commands;
 
 namespace Iterative_Robot.SubSystems
 {
+    /// <summary>
+    /// Options for the location of the arm
+    /// </summary>
     public enum ArmLocation { Low, High, Release } 
 
-
+    /// <summary>
+    /// Can-Grabbing Arm System
+    /// </summary>
     public class Arm : Subsystem
     {
         private Talon ArmMotor;
@@ -30,8 +35,6 @@ namespace Iterative_Robot.SubSystems
             }
         }
 
-        // Put methods for controlling this subsystem
-        // here. Call these from Commands.
         public Arm()
         {
             ArmMotor = new Talon(Constants.ArmPort);

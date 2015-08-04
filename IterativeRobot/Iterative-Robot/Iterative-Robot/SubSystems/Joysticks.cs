@@ -7,6 +7,9 @@ using WPILib.Commands;
 
 namespace Iterative_Robot.SubSystems
 {
+    /// <summary>
+    /// All primary button actions
+    /// </summary>
     public enum PrimaryControls
     {
         Reset_Gyro, Toggle_Field_Centric, Clear_Faults,
@@ -14,12 +17,19 @@ namespace Iterative_Robot.SubSystems
         Center, Tote_Ramp, Strafe_Left, Strafe_Right, Strafe_Down,
         Strafe_Up
     }
+
+    /// <summary>
+    /// All secondary button actions
+    /// </summary>
     public enum SecondaryControls
     {
         Auto_Stack, Arm_Up, Manual_Arm, Manual_Elevator,
         Claw_Open, Reset, Can_Burglar
     }
 
+    /// <summary>
+    /// Contains references for both primary and secondary joysticks
+    /// </summary>
     public class Joysticks : Subsystem
     {
         private Joystick Primary_Left;

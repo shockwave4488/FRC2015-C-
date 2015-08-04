@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Iterative_Robot.Team_Code
 {
+    /// <summary>
+    /// Simpler form of PID logic
+    /// </summary>
     class SWave_PID
     {
         double P, I, D;

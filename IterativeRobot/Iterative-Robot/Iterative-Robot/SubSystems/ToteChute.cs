@@ -7,8 +7,14 @@ using WPILib.Commands;
 
 namespace Iterative_Robot.SubSystems
 {
+    /// <summary>
+    /// The states that the conveyor can report
+    /// </summary>
     public enum conveyorState { Done, In, Out, invalid}
 
+    /// <summary>
+    /// Subsystem including ramp, conveyor, and tote stopper
+    /// </summary>
     public class ToteChute : Subsystem
     {
         private DoubleSolenoid ramp;

@@ -12,3 +12,17 @@ C:\Users\Nick\Documents\GitHub\FRC-2015-c#\IterativeRobot\Iterative-Robot\Iterat
 C:\Users\Nick\Documents\GitHub\FRC-2015-c#\IterativeRobot\Iterative-Robot\Iterative-Robot\obj\Debug\Iterative-Robot.csprojResolveAssemblyReference.cache
 C:\Users\Nick\Documents\GitHub\FRC-2015-c#\IterativeRobot\Iterative-Robot\Iterative-Robot\obj\Debug\Iterative-Robot.exe
 C:\Users\Nick\Documents\GitHub\FRC-2015-c#\IterativeRobot\Iterative-Robot\Iterative-Robot\obj\Debug\Iterative-Robot.pdb
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\obj\Debug\Iterative-Robot.exe
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\obj\Debug\Iterative-Robot.pdb
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Debug\libHALAthena_shared.so
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Debug\Iterative-Robot.exe
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Debug\Iterative-Robot.pdb
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Debug\HAL-Base.dll
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Debug\HAL-RoboRIO.dll
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Debug\HAL-Simulation.dll
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Debug\NetworkTables.dll
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Debug\WPILib.dll
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Debug\HAL-Simulation.xml
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Debug\NetworkTables.xml
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Debug\WPILib.xml
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\obj\Debug\Iterative-Robot.csprojResolveAssemblyReference.cache

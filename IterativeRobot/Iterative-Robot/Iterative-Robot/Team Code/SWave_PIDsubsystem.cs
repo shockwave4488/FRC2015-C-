@@ -7,7 +7,11 @@ using WPILib.Commands;
 
 namespace Iterative_Robot.Team_Code
 {
-    public class SWave_PIDsubsystem : Subsystem
+    /// <summary>
+    /// Extendable controller for a PID Controlled mechanism.
+    /// Requires SWave_IPositionSensor implementing sensor.
+    /// </summary>
+    public class SWave_PIDSubsystem : Subsystem
     {
         private SWave_PID PID;
         private SWave_IPositionSensor sensor;
@@ -24,7 +28,7 @@ namespace Iterative_Robot.Team_Code
             }
         }
 
-        public SWave_PIDsubsystem(PWMSpeedController Motor_, SWave_IPositionSensor sensor_, double kP, double kI, double kD)
+        public SWave_PIDSubsystem(PWMSpeedController Motor_, SWave_IPositionSensor sensor_, double kP, double kI, double kD)
         {
             sensor = sensor_; Motor = Motor_;
             PID = new SWave_PID(kP, kI, kD);

@@ -7,15 +7,18 @@ using WPILib.Commands;
 
 namespace Iterative_Robot
 {
+    /// <summary>
+    /// All controls necessary for Mechanum Drive
+    /// </summary>
     public class Drive : Subsystem
     {
         private Talon LF, RF, LR, RR;
         private Team_Code.SWave_AccelLimit limitX, limitY, limitR;
         private double _X, _Y, _R;
 
-        public double X { get { return _X; } set { _X = limitX.update(value); } } //Sideways
-        public double Y { get { return _Y; } set { _Y = limitY.update(value); } } //Forward
-        public double Rotation { get { return _R; } set { _R = limitR.update(value); } }
+        public double X { get { return _X; } set { _X = limitX.Get(value); } } //Sideways
+        public double Y { get { return _Y; } set { _Y = limitY.Get(value); } } //Forward
+        public double Rotation { get { return _R; } set { _R = limitR.Get(value); } }
 
         public Drive()
         {

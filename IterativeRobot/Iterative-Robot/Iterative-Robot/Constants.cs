@@ -8,9 +8,12 @@ using Iterative_Robot.Team_Code;
 
 namespace Iterative_Robot
 {
-    class Constants
+    /// <summary>
+    /// Static class defines all global constants for this program.
+    /// PWM/DIO/SOlenoid Channels, Setpoints, Button Mappings, Etc.
+    /// </summary>
+    static class Constants
     {
-
         //PWM Channels
         public static int DriveLFPort = 2;
         public static int DriveLRPort = 0;
@@ -119,6 +122,5 @@ namespace Iterative_Robot
         public static double ArmP = 5.5;
         public static double ArmD = 0;
         public static double ArmPosnTolerance = 0.05;
-
     }
 }

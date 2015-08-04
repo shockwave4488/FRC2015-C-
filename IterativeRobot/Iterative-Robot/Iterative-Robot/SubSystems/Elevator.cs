@@ -7,8 +7,14 @@ using WPILib.Commands;
 
 namespace Iterative_Robot.SubSystems
 {
+    /// <summary>
+    /// Options for the Elevator Location
+    /// </summary>
     public enum ElevatorLocation { High, First_Tote, Bottom, Pickup, Stabilize }
 
+    /// <summary>
+    /// Elevator Subsystem
+    /// </summary>
     public class Elevator : Subsystem
     {
         private Talon ElevatorMotor;
