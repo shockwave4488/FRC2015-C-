@@ -85,6 +85,7 @@
     <Compile Include="Team Code\SWave_Potentiometer.cs" />
     <Compile Include="Team Code\SWave_Toggle.cs" />
     <Compile Include="Team Code\SWave_Xbox.cs" />
+    <Compile Include="Team Code\SW_IStandard.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="libHALAthena_shared.so" />

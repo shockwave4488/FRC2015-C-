@@ -58,8 +58,8 @@ namespace Iterative_Robot
         public static JoystickButtons Primary_Left_ToggleFieldCentric = JoystickButtons.Button11;
 
         //Primary Driver Axis Controls
-        public static JoystickAxes Primary_Drive_X = JoystickAxes.X;
-        public static JoystickAxes Primary_Drive_Y = JoystickAxes.Y;
+        public static JoystickAxes Primary_Drive_Strafe = JoystickAxes.Y;
+        public static JoystickAxes Primary_Drive_ForwardBack = JoystickAxes.X;
         public static JoystickAxes Primary_Drive_R = JoystickAxes.X;
 
         //Primary Driver Right Button Controls

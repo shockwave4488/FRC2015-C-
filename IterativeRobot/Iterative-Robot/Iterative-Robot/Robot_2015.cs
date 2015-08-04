@@ -25,9 +25,9 @@ namespace Iterative_Robot
         {
             joysticks = new Joysticks();
             mecDrive = new Drive();
-            compressor = new Compressor();
+            //compressor = new Compressor();
 
-            compressor.Start();
+            //compressor.Start();
 
             Constants.initLiftLocations();
             Constants.initArmLocations();
@@ -46,9 +46,9 @@ namespace Iterative_Robot
          */
         public override void TeleopPeriodic()
         {
-            mecDrive.X = joysticks.getPrimaryAxis(PrimaryAxisControls.X);
-            mecDrive.Y = joysticks.getPrimaryAxis(PrimaryAxisControls.Y);
-            mecDrive.Rotation = joysticks.getPrimaryAxis(PrimaryAxisControls.Rotate);
+            mecDrive.X = joysticks.getPrimaryAxis(PrimaryAxisControls.DriveX);
+            mecDrive.Y = joysticks.getPrimaryAxis(PrimaryAxisControls.DriveY);
+            mecDrive.Rotation = joysticks.getPrimaryAxis(PrimaryAxisControls.DriveRotate);
 
             mecDrive.update();
         }

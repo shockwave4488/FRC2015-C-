@@ -18,7 +18,10 @@ namespace Iterative_Robot.SubSystems
         Strafe_Up
     }
 
-    public enum PrimaryAxisControls { X, Y, Rotate }
+    /// <summary>
+    /// All primary axis controls
+    /// </summary>
+    public enum PrimaryAxisControls { DriveX, DriveY, DriveRotate }
 
     /// <summary>
     /// All secondary button actions
@@ -86,11 +89,11 @@ namespace Iterative_Robot.SubSystems
         {
             switch (action)
             {
-                case PrimaryAxisControls.X:
-                    return Primary_Left.getAxis(Constants.Primary_Drive_X);
-                case PrimaryAxisControls.Y:
-                    return Primary_Left.getAxis(Constants.Primary_Drive_Y);
-                case PrimaryAxisControls.Rotate:
+                case PrimaryAxisControls.DriveX:
+                    return Primary_Left.getAxis(Constants.Primary_Drive_Strafe);
+                case PrimaryAxisControls.DriveY:
+                    return Primary_Left.getAxis(Constants.Primary_Drive_ForwardBack);
+                case PrimaryAxisControls.DriveRotate:
                     return Primary_Right.getAxis(Constants.Primary_Drive_R);
                 default:
                     return 0;

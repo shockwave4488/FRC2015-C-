@@ -30,6 +30,8 @@ namespace Iterative_Robot
             limitX = new Team_Code.SWave_AccelLimit(Constants.DriveAccelLimit);
             limitY = new Team_Code.SWave_AccelLimit(Constants.DriveAccelLimit);
             limitR = new Team_Code.SWave_AccelLimit(Constants.DriveAccelLimit);
+
+            RF.Inverted = true; RR.Inverted = true;
         }
 
         public void update()

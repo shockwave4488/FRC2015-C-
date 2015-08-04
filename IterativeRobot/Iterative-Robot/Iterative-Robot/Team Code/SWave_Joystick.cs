@@ -37,7 +37,13 @@ namespace Iterative_Robot.Team_Code
 
         public double getAxis(JoystickAxes axis)
         {
-            return base.GetRawAxis((int)axis);
+            switch (axis)
+            {
+                case JoystickAxes.Y:
+                    return -base.GetRawAxis((int)axis);
+                default:
+                    return base.GetRawAxis((int)axis);
+            }
         }
     }
 }

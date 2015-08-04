@@ -13,11 +13,11 @@ namespace Iterative_Robot.Team_Code
     class SWave_AccelLimit
     {
         double dOut { get; set; }
-        public double feedback;
+        private double feedback;
         
-        public SWave_AccelLimit(double dOut)
+        public SWave_AccelLimit(double dOut_)
         {
-            feedback = 0;
+            feedback = 0; dOut = dOut_;
         }
 
         public double Get(double setpoint)
