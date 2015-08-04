@@ -10,7 +10,7 @@ namespace Iterative_Robot
     /// <summary>
     /// All controls necessary for Mechanum Drive
     /// </summary>
-    public class Drive : Subsystem
+    public class Drive
     {
         private Talon LF, RF, LR, RR;
         private Team_Code.SWave_AccelLimit limitX, limitY, limitR;
@@ -50,12 +50,6 @@ namespace Iterative_Robot
             RF.Set(toReturn[1]);
             LR.Set(toReturn[2]);
             RR.Set(toReturn[3]);
-        }
-
-        protected override void InitDefaultCommand()
-        {
-            // Set the default command for a subsystem here.
-            //SetDefaultCommand(new MySpecialCommand());
         }
     }
 }

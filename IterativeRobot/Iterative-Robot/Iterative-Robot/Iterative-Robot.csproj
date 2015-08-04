@@ -76,6 +76,7 @@
     <Compile Include="SubSystems\Elevator.cs" />
     <Compile Include="SubSystems\Joysticks.cs" />
     <Compile Include="SubSystems\ToteChute.cs" />
+    <Compile Include="Team Code\SWave_Joystick.cs" />
     <Compile Include="Team Code\SWave_Encoder.cs" />
     <Compile Include="Team Code\SWave_IPositionSensor.cs" />
     <Compile Include="Team Code\SWave_PIDSubsystem.cs" />

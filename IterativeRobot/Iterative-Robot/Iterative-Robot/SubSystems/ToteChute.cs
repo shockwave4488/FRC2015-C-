@@ -15,7 +15,7 @@ namespace Iterative_Robot.SubSystems
     /// <summary>
     /// Subsystem including ramp, conveyor, and tote stopper
     /// </summary>
-    public class ToteChute : Subsystem
+    public class ToteChute
     {
         private DoubleSolenoid ramp;
         private DoubleSolenoid stop;
@@ -56,12 +56,6 @@ namespace Iterative_Robot.SubSystems
             if (!frontBeam.Get() && !backBeam.Get())
                 return conveyorState.In;
             return conveyorState.invalid;
-        }
-
-        protected override void InitDefaultCommand()
-        {
-            // Set the default command for a subsystem here.
-            //SetDefaultCommand(new MySpecialCommand());
         }
     }
 }

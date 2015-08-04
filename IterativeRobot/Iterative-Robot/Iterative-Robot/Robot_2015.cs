@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using WPILib;
+using Iterative_Robot.SubSystems;
 
 namespace Iterative_Robot
 {
@@ -12,6 +13,7 @@ namespace Iterative_Robot
      */
     public class Robot2015 : IterativeRobot
     {
+        Joysticks joysticks;
         Drive mecDrive; 
         Compressor compressor;
 
@@ -21,6 +23,7 @@ namespace Iterative_Robot
          */
         public override void RobotInit()
         {
+            joysticks = new Joysticks();
             mecDrive = new Drive();
             compressor = new Compressor();
 
@@ -35,7 +38,7 @@ namespace Iterative_Robot
          */
         public override void AutonomousPeriodic()
         {
-
+            
         }
 
         /**
@@ -43,7 +46,11 @@ namespace Iterative_Robot
          */
         public override void TeleopPeriodic()
         {
+            mecDrive.X = joysticks.getPrimaryAxis(PrimaryAxisControls.X);
+            mecDrive.Y = joysticks.getPrimaryAxis(PrimaryAxisControls.Y);
+            mecDrive.Rotation = joysticks.getPrimaryAxis(PrimaryAxisControls.Rotate);
 
+            mecDrive.update();
         }
 
         /**

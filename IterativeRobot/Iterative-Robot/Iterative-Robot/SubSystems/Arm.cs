@@ -14,7 +14,7 @@ namespace Iterative_Robot.SubSystems
     /// <summary>
     /// Can-Grabbing Arm System
     /// </summary>
-    public class Arm : Subsystem
+    public class Arm
     {
         private Talon ArmMotor;
         private DoubleSolenoid claw;
@@ -56,12 +56,6 @@ namespace Iterative_Robot.SubSystems
 
             ArmMotor.Set(value);
             claw.Set(clawState ? DoubleSolenoid.Value.Forward : DoubleSolenoid.Value.Reverse);
-        }
-
-        protected override void InitDefaultCommand()
-        {
-            // Set the default command for a subsystem here.
-            //SetDefaultCommand(new MySpecialCommand());
         }
     }
 }

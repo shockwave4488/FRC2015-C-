@@ -48,21 +48,26 @@ namespace Iterative_Robot
         public static int Secondary_Port = 2;
 
         //Primary Driver Left Button Controls
-        public static int Primary_DriveReduction = 0;
-        public static int Primary_Output = 1;
-        public static int Primary_AlignCenter = 2;
-        public static int Primary_AlignLeft = 3;
-        public static int Primary_AlignRight = 4;
-        public static int Primary_ClearFaults = 5;
-        public static int Primary_GyroReset = 9;
-        public static int Primary_ToggleFieldCentric = 10;
+        public static JoystickButtons Primary_Left_DriveReduction = JoystickButtons.Trigger;
+        public static JoystickButtons Primary_Left_Output = JoystickButtons.Button2;
+        public static JoystickButtons Primary_Left_AlignCenter = JoystickButtons.Button3;
+        public static JoystickButtons Primary_Left_AlignLeft = JoystickButtons.Button4;
+        public static JoystickButtons Primary_Left_AlignRight = JoystickButtons.Button5;
+        public static JoystickButtons Primary_Left_ClearFaults = JoystickButtons.Button6;
+        public static JoystickButtons Primary_Left_GyroReset = JoystickButtons.Button7;
+        public static JoystickButtons Primary_Left_ToggleFieldCentric = JoystickButtons.Button11;
+
+        //Primary Driver Axis Controls
+        public static JoystickAxes Primary_Drive_X = JoystickAxes.X;
+        public static JoystickAxes Primary_Drive_Y = JoystickAxes.Y;
+        public static JoystickAxes Primary_Drive_R = JoystickAxes.X;
 
         //Primary Driver Right Button Controls
-        public static int Primary_ToteRamp = 0;
-        public static int Primary_Strafe_Down = 1;
-        public static int Primary_Strafe_Up = 2;
-        public static int Primary_Strafe_Right = 3;
-        public static int Primary_Strafe_Left = 4;
+        public static JoystickButtons Primary_Right_ToteRamp = JoystickButtons.Trigger;
+        public static JoystickButtons Primary_Right_Strafe_Down = JoystickButtons.Button2;
+        public static JoystickButtons Primary_Right_Strafe_Up = JoystickButtons.Button3;
+        public static JoystickButtons Primary_Right_Strafe_Right = JoystickButtons.Button5;
+        public static JoystickButtons Primary_Right_Strafe_Left = JoystickButtons.Button4;
 
         //Secondary Driver Button Controls
         public static XboxButtons Secondary_AutoStack = XboxButtons.A;

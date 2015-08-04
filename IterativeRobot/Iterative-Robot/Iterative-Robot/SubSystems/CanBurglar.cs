@@ -10,7 +10,7 @@ namespace Iterative_Robot.SubSystems
     /// <summary>
     /// Can-Burglar Subsystem
     /// </summary>
-    public class CanBurglar : Subsystem
+    public class CanBurglar
     {
         private DoubleSolenoid grabber;
         private DigitalInput HallEffect;
@@ -28,12 +28,6 @@ namespace Iterative_Robot.SubSystems
         {
             grabber.Set(grab ? DoubleSolenoid.Value.Forward : DoubleSolenoid.Value.Reverse);
             grabbed = HallEffect.Get();
-        }
-
-        protected override void InitDefaultCommand()
-        {
-            // Set the default command for a subsystem here.
-            //SetDefaultCommand(new MySpecialCommand());
         }
     }
 }

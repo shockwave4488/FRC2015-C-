@@ -15,7 +15,7 @@ namespace Iterative_Robot.SubSystems
     /// <summary>
     /// Elevator Subsystem
     /// </summary>
-    public class Elevator : Subsystem
+    public class Elevator
     {
         private Talon ElevatorMotor;
         private AnalogPotentiometer pot;
@@ -57,12 +57,6 @@ namespace Iterative_Robot.SubSystems
                 value = Math.Max(0, value);
 
             ElevatorMotor.Set(value);
-        }
-
-        protected override void InitDefaultCommand()
-        {
-            // Set the default command for a subsystem here.
-            //SetDefaultCommand(new MySpecialCommand());
         }
     }
 }
