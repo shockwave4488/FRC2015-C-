@@ -53,31 +53,31 @@ namespace Iterative_Robot.SubSystems
             switch (action)
             {
                 case PrimaryButtonControls.Reset_Gyro:
-                    return Primary_Left.getButton(Constants.Primary_Left_GyroReset);
+                    return Primary_Left.GetButton(Constants.Primary_Left_GyroReset);
                 case PrimaryButtonControls.Toggle_Field_Centric:
-                    return Primary_Left.getButton(Constants.Primary_Left_ToggleFieldCentric);
+                    return Primary_Left.GetButton(Constants.Primary_Left_ToggleFieldCentric);
                 case PrimaryButtonControls.Clear_Faults:
-                    return Primary_Left.getButton(Constants.Primary_Left_ClearFaults);
+                    return Primary_Left.GetButton(Constants.Primary_Left_ClearFaults);
                 case PrimaryButtonControls.Drive_Reduction:
-                    return Primary_Left.getButton(Constants.Primary_Left_DriveReduction);
+                    return Primary_Left.GetButton(Constants.Primary_Left_DriveReduction);
                 case PrimaryButtonControls.Output:
-                    return Primary_Left.getButton(Constants.Primary_Left_Output);
+                    return Primary_Left.GetButton(Constants.Primary_Left_Output);
                 case PrimaryButtonControls.Left_Align:
-                    return Primary_Left.getButton(Constants.Primary_Left_AlignLeft);
+                    return Primary_Left.GetButton(Constants.Primary_Left_AlignLeft);
                 case PrimaryButtonControls.Right_Align:
-                    return Primary_Left.getButton(Constants.Primary_Left_AlignRight);
+                    return Primary_Left.GetButton(Constants.Primary_Left_AlignRight);
                 case PrimaryButtonControls.Center:
-                    return Primary_Left.getButton(Constants.Primary_Left_AlignCenter);
+                    return Primary_Left.GetButton(Constants.Primary_Left_AlignCenter);
                 case PrimaryButtonControls.Tote_Ramp:
-                    return Primary_Right.getButton(Constants.Primary_Right_ToteRamp);
+                    return Primary_Right.GetButton(Constants.Primary_Right_ToteRamp);
                 case PrimaryButtonControls.Strafe_Left:
-                    return Primary_Right.getButton(Constants.Primary_Right_Strafe_Left);
+                    return Primary_Right.GetButton(Constants.Primary_Right_Strafe_Left);
                 case PrimaryButtonControls.Strafe_Right:
-                    return Primary_Right.getButton(Constants.Primary_Right_Strafe_Right);
+                    return Primary_Right.GetButton(Constants.Primary_Right_Strafe_Right);
                 case PrimaryButtonControls.Strafe_Down:
-                    return Primary_Right.getButton(Constants.Primary_Right_Strafe_Down);
+                    return Primary_Right.GetButton(Constants.Primary_Right_Strafe_Down);
                 case PrimaryButtonControls.Strafe_Up:
-                    return Primary_Right.getButton(Constants.Primary_Right_Strafe_Up);
+                    return Primary_Right.GetButton(Constants.Primary_Right_Strafe_Up);
                 default:
                     return false;
             }
@@ -90,11 +90,11 @@ namespace Iterative_Robot.SubSystems
             switch (action)
             {
                 case PrimaryAxisControls.DriveX:
-                    return Primary_Left.getAxis(Constants.Primary_Drive_Strafe);
+                    return Primary_Left.GetAxis(Constants.Primary_Drive_Strafe);
                 case PrimaryAxisControls.DriveY:
-                    return Primary_Left.getAxis(Constants.Primary_Drive_ForwardBack);
+                    return Primary_Left.GetAxis(Constants.Primary_Drive_ForwardBack);
                 case PrimaryAxisControls.DriveRotate:
-                    return Primary_Right.getAxis(Constants.Primary_Drive_R);
+                    return Primary_Right.GetAxis(Constants.Primary_Drive_R);
                 default:
                     return 0;
             }

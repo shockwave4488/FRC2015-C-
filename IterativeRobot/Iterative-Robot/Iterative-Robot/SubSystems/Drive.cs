@@ -14,11 +14,10 @@ namespace Iterative_Robot
     {
         private Talon LF, RF, LR, RR;
         private Team_Code.SWave_AccelLimit limitX, limitY, limitR;
-        private double _X, _Y, _R;
 
-        public double X { get { return _X; } set { _X = limitX.Get(value); } } //Sideways
-        public double Y { get { return _Y; } set { _Y = limitY.Get(value); } } //Forward
-        public double Rotation { get { return _R; } set { _R = limitR.Get(value); } }
+        public double X { get; set; } //Sideways
+        public double Y { get; set; } //Forward
+        public double Rotation { get; set; }
 
         public Drive()
         {
@@ -26,6 +25,8 @@ namespace Iterative_Robot
             RF = new Talon(Constants.DriveRFPort);
             LR = new Talon(Constants.DriveLRPort);
             RR = new Talon(Constants.DriveRRPort);
+
+            X = 0; Y = 0;
 
             limitX = new Team_Code.SWave_AccelLimit(Constants.DriveAccelLimit);
             limitY = new Team_Code.SWave_AccelLimit(Constants.DriveAccelLimit);
@@ -36,11 +37,13 @@ namespace Iterative_Robot
 
         public void update()
         {
+            limitX.Update(X); limitY.Update(Y); limitR.Update(Rotation);
+
             double[] toReturn = new double[4];
-            toReturn[0] = Y - X - Rotation; //LF
-            toReturn[1] = Y + X + Rotation; //RF
-            toReturn[2] = Y + X - Rotation; //LR
-            toReturn[3] = Y - X + Rotation; //RR
+            toReturn[0] = limitY.Get() - limitX.Get() - limitR.Get(); //LF
+            toReturn[1] = limitY.Get() + limitX.Get() + limitR.Get(); //RF
+            toReturn[2] = limitY.Get() + limitX.Get() - limitR.Get(); //LR
+            toReturn[3] = limitY.Get() - limitX.Get() + limitR.Get(); //RR
 
             //normalize values
             double max = toReturn.Max();

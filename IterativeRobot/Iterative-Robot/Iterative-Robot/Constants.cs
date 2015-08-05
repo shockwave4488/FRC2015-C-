@@ -57,17 +57,17 @@ namespace Iterative_Robot
         public static JoystickButtons Primary_Left_GyroReset = JoystickButtons.Button7;
         public static JoystickButtons Primary_Left_ToggleFieldCentric = JoystickButtons.Button11;
 
-        //Primary Driver Axis Controls
-        public static JoystickAxes Primary_Drive_Strafe = JoystickAxes.Y;
-        public static JoystickAxes Primary_Drive_ForwardBack = JoystickAxes.X;
-        public static JoystickAxes Primary_Drive_R = JoystickAxes.X;
-
         //Primary Driver Right Button Controls
         public static JoystickButtons Primary_Right_ToteRamp = JoystickButtons.Trigger;
         public static JoystickButtons Primary_Right_Strafe_Down = JoystickButtons.Button2;
         public static JoystickButtons Primary_Right_Strafe_Up = JoystickButtons.Button3;
         public static JoystickButtons Primary_Right_Strafe_Right = JoystickButtons.Button5;
         public static JoystickButtons Primary_Right_Strafe_Left = JoystickButtons.Button4;
+
+        //Primary Driver Axis Controls
+        public static JoystickAxes Primary_Drive_Strafe = JoystickAxes.Y;
+        public static JoystickAxes Primary_Drive_ForwardBack = JoystickAxes.X;
+        public static JoystickAxes Primary_Drive_R = JoystickAxes.X;
 
         //Secondary Driver Button Controls
         public static XboxButtons Secondary_AutoStack = XboxButtons.A;

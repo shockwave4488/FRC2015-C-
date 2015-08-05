@@ -10,12 +10,12 @@ namespace Iterative_Robot.Team_Code
     /// Defines a standard interface for all classes.
     /// If a class explicitly defines any of these functions, it should probably implement this class.
     /// </summary>
-    interface SW_IStandard<T>
+    interface SWave_IStandard<T>
     {
         string Name { get; set; }
         bool Enabled { get; set; }
 
         void Update(T Parameter);
-        string ToString();
+        string Print();
     }
 }

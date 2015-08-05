@@ -22,7 +22,11 @@ namespace Iterative_Robot.Team_Code
     /// </summary>
     public class SWave_Xbox : Joystick
     {
-        public SWave_Xbox(int port) : base(port) { }
+        public double DeadZone { get; set; }
+        public SWave_Xbox(int port) : base(port)
+        {
+            DeadZone = 0.2;
+        }
 
         public bool getButton(XboxButtons button)
         {
@@ -32,6 +36,11 @@ namespace Iterative_Robot.Team_Code
         public double getAxis(XboxAxes axis)
         {
             return base.GetRawAxis((int)axis);
+        }
+
+        public double fixDeadZone(double valueIn)
+        {
+            return (Math.Abs(valueIn) < DeadZone ? 0 : valueIn);
         }
     }
 }
