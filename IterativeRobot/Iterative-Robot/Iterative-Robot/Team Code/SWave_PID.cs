@@ -9,7 +9,7 @@ namespace Iterative_Robot.Team_Code
     /// <summary>
     /// Simpler form of PID logic
     /// </summary>
-    class SWave_PID : SWave_IStandard<double>
+    public class SWave_PID : SWave_IStandard<double>
     {
         private double P, I, D;
         private double accumulatedIntegral;

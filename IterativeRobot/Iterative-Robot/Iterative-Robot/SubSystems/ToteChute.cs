@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WPILib;
-using WPILib.Commands;
 
 namespace Iterative_Robot.SubSystems
 {
     /// <summary>
     /// The states that the conveyor can report
     /// </summary>
-    public enum conveyorState { Done, In, Out, invalid}
+    public enum conveyorState { Done, In, Out, Invalid }
 
     /// <summary>
     /// Subsystem including ramp, conveyor, and tote stopper
@@ -38,11 +37,11 @@ namespace Iterative_Robot.SubSystems
         public void update()
         {
             if (output)
-                conveyor.Set(0.5); //Replace with OutSpeed
+                conveyor.Set(Math.Abs(Constants.Conveyor_OutputSpeed)); //Replace with OutSpeed
             else if (getState() == conveyorState.In)
-                conveyor.Set(-0.1);
+                conveyor.Set(-Math.Abs(Constants.Conveyor_InSpeed));
             else if (getState() == conveyorState.Out)
-                conveyor.Set(0.1);
+                conveyor.Set(Math.Abs(Constants.Conveyor_OutSpeed));
 
             stop.Set(stacking ? DoubleSolenoid.Value.Forward : DoubleSolenoid.Value.Reverse);
         }
@@ -55,7 +54,7 @@ namespace Iterative_Robot.SubSystems
                 return conveyorState.Done;
             if (!frontBeam.Get() && !backBeam.Get())
                 return conveyorState.In;
-            return conveyorState.invalid;
+            return conveyorState.Invalid;
         }
     }
 }

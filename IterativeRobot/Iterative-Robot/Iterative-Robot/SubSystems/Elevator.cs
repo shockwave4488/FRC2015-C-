@@ -15,24 +15,34 @@ namespace Iterative_Robot.SubSystems
     /// <summary>
     /// Elevator Subsystem
     /// </summary>
-    public class Elevator
+    public class Elevator : Team_Code.SWave_IStandard<object>
     {
         private Talon ElevatorMotor;
         private AnalogPotentiometer pot;
         private Team_Code.SWave_PID PID;
         private Team_Code.SWave_AccelLimit limit;
-        private ElevatorLocation setpoint_name;
+        private ElevatorLocation setpointName;
 
+        public string Name { get { return ""; } set { } }
         public bool pause { get; set; }
-        public bool stop { get; set; }
+        public bool Enabled { get; set; }
+        
+        public bool AtPosition
+        {
+            get
+            {
+                return (pot.Get() < PID.setpoint + Constants.LiftPosnTolerance) &&
+                    (pot.Get() > PID.setpoint - Constants.LiftPosnTolerance);
+            }
+        }
         public ElevatorLocation loc
         {
-            get { return setpoint_name; }
+            get { return setpointName; }
             set
             {
                 if (!pause)
                     PID.setpoint = Constants.LiftLocations[value];
-                setpoint_name = value;
+                setpointName = value;
             }
         }
 
@@ -41,15 +51,15 @@ namespace Iterative_Robot.SubSystems
             pot = new AnalogPotentiometer(new AnalogInput(Constants.LiftPotChannel));
             ElevatorMotor = new Talon(Constants.LiftPort);
             PID = new Team_Code.SWave_PID(Constants.LiftP, 0, Constants.LiftD);
-            pause = false; stop = false;
+            pause = false; Enabled = true;
             limit = new Team_Code.SWave_AccelLimit(0.15);
         }
 
-        public void update()
+        public void Update(object UNUSED)
         {
             double value = PID.get(pot.Get());
 
-            if (stop)
+            if (!Enabled)
                 value = 0;
             else if (pot.Get() > Constants.LiftLimitHigh)
                 value = Math.Min(0, value);
@@ -57,6 +67,38 @@ namespace Iterative_Robot.SubSystems
                 value = Math.Max(0, value);
 
             ElevatorMotor.Set(value);
+        }
+
+        public string Print()
+        {
+            string toReturn = Name + GetType();
+
+            if (!AtPosition)
+                toReturn += "\n\tCurrently At " + pot.Get() + ", Going To " + PID.setpoint + " (" + printSetpointName() + ")";
+            else
+                toReturn += "\n\tCurrently At " + pot.Get() + " (" + printSetpointName() + ")";
+
+            toReturn += "\n\t" + (Enabled ? "" : "Not ") + "Enabled";
+            return toReturn;
+        }
+
+        private string printSetpointName()
+        {
+            switch (setpointName)
+            {
+                case ElevatorLocation.High:
+                    return "High";
+                case ElevatorLocation.First_Tote:
+                    return "Low";
+                case ElevatorLocation.Bottom:
+                    return "Bottom";
+                case ElevatorLocation.Pickup:
+                    return "Pickup";
+                case ElevatorLocation.Stabilize:
+                    return "Stabilize";
+                default:
+                    return "ERROR : INVALID ELEVATOR SETPOINT NAME";
+            }
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Iterative_Robot
         {
             joysticks = new Joysticks();
             mecDrive = new Drive();
-            //compressor = new Compressor();
+            compressor = new Compressor();
 
             //compressor.Start();
 
@@ -50,7 +50,9 @@ namespace Iterative_Robot
             mecDrive.Y = joysticks.getPrimaryAxis(PrimaryAxisControls.DriveY);
             mecDrive.Rotation = joysticks.getPrimaryAxis(PrimaryAxisControls.DriveRotate);
 
-            mecDrive.update();
+            mecDrive.FieldCentric = joysticks.getPrimaryButton(PrimaryButtonControls.Toggle_Field_Centric);
+
+            mecDrive.Update(null); //Debug this by Disabling X Movement.
         }
 
         /**

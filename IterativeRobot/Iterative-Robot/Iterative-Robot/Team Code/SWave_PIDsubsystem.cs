@@ -10,40 +10,48 @@ namespace Iterative_Robot.Team_Code
     /// <summary>
     /// Extendable controller for a PID Controlled mechanism.
     /// Requires SWave_IPositionSensor implementing sensor.
+    /// Defines No Constructors.
     /// </summary>
-    public class SWave_PIDSubsystem : Subsystem
+    public abstract class SWave_PIDSubsystem : SWave_IStandard<object>
     {
-        private SWave_PID PID;
-        private SWave_IPositionSensor sensor;
-        private PWMSpeedController Motor;
-        private double setpoint_;
+        protected SWave_PID PID;
+        protected SWave_IPositionSensor sensor;
+        protected PWMSpeedController Motor;
+        protected double tolerance;
+        protected int setpointName_;
+
+        public string Name { get; set; }
+        public bool Enabled { get; set; }
         
-        public double setpoint
+        public bool AtSetpoint
         {
-            get { return setpoint_; }
-            set
-            {
-                setpoint_ = value;
-                PID.setpoint = value;
-            }
+            get { return (sensor.get() < PID.setpoint + tolerance) && (sensor.get() > PID.setpoint - tolerance); }
+        }
+        public int setpointName
+        {
+            get { return setpointName_; }
+            set { PID.setpoint = value; }
         }
 
-        public SWave_PIDSubsystem(PWMSpeedController Motor_, SWave_IPositionSensor sensor_, double kP, double kI, double kD)
+        public virtual void Update(object UNUSED)
         {
-            sensor = sensor_; Motor = Motor_;
-            PID = new SWave_PID(kP, kI, kD);
-        }
-
-        public virtual void update()
-        {
-            PID.update(sensor.get());
+            PID.Update(sensor.get());
             Motor.Set(PID.get(sensor.get()));
         }
 
-        protected override void InitDefaultCommand()
+        public virtual string Print()
         {
-            // Set the default command for a subsystem here.
-            //SetDefaultCommand(new MySpecialCommand());
+            string toReturn = Name + " " + GetType();
+
+            if (!AtSetpoint)
+                toReturn += "\n\tCurrently At" + sensor.get() + ", Going To " + PID.setpoint + " (" + printSetpointName() + ")";
+            else
+                toReturn += "\n\tCurrently At" + sensor.get() + ", Going To " + PID.setpoint + " (" + printSetpointName() + ")";
+
+            toReturn += "\n\t" + (Enabled ? "" : "Not ") + "Enabled";
+            return toReturn;
         }
+
+        protected abstract string printSetpointName();
     }
 }

@@ -65,8 +65,8 @@ namespace Iterative_Robot
         public static JoystickButtons Primary_Right_Strafe_Left = JoystickButtons.Button4;
 
         //Primary Driver Axis Controls
-        public static JoystickAxes Primary_Drive_Strafe = JoystickAxes.Y;
-        public static JoystickAxes Primary_Drive_ForwardBack = JoystickAxes.X;
+        public static JoystickAxes Primary_Drive_Strafe = JoystickAxes.X;
+        public static JoystickAxes Primary_Drive_ForwardBack = JoystickAxes.Y;
         public static JoystickAxes Primary_Drive_R = JoystickAxes.X;
 
         //Secondary Driver Button Controls
@@ -81,6 +81,11 @@ namespace Iterative_Robot
 
         //Misc Variables
         public static double DriveAccelLimit = 0.2;
+
+        //Conveyor Variables
+        public static double Conveyor_OutputSpeed = 0.5;
+        public static double Conveyor_InSpeed = 0.1;
+        public static double Conveyor_OutSpeed = 0.1;
 
         //Lift Setpoints
         private static double LiftPickupLoc = 0.062;

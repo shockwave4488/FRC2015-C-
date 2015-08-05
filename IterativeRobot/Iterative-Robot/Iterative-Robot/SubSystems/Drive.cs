@@ -10,11 +10,15 @@ namespace Iterative_Robot
     /// <summary>
     /// All controls necessary for Mechanum Drive
     /// </summary>
-    public class Drive
+    public class Drive : Team_Code.SWave_IStandard<object>
     {
         private Talon LF, RF, LR, RR;
         private Team_Code.SWave_AccelLimit limitX, limitY, limitR;
+        private Team_Code.SWave_Toggle FieldCentricToggle;
 
+        public bool FieldCentric { get { return FieldCentricToggle.state; } set { FieldCentricToggle.state = value; } }
+        public string Name { get { return ""; } set { } }
+        public bool Enabled { get; set; }
         public double X { get; set; } //Sideways
         public double Y { get; set; } //Forward
         public double Rotation { get; set; }
@@ -33,9 +37,11 @@ namespace Iterative_Robot
             limitR = new Team_Code.SWave_AccelLimit(Constants.DriveAccelLimit);
 
             RF.Inverted = true; RR.Inverted = true;
+
+            Enabled = true;
         }
 
-        public void update()
+        public void Update(object UNUSED)
         {
             limitX.Update(X); limitY.Update(Y); limitR.Update(Rotation);
 
@@ -51,10 +57,24 @@ namespace Iterative_Robot
                 for (int i = 0; i < toReturn.Length; i++)
                     toReturn[i] /= max;
 
-            LF.Set(toReturn[0]);
-            RF.Set(toReturn[1]);
-            LR.Set(toReturn[2]);
-            RR.Set(toReturn[3]);
+            if (Enabled)
+            {
+                LF.Set(toReturn[0]);
+                RF.Set(toReturn[1]);
+                LR.Set(toReturn[2]);
+                RR.Set(toReturn[3]);
+            }
+        }
+
+        public string Print()
+        {
+            string toReturn = Name + " " + GetType();
+
+            toReturn += "\n\tX : " + X + "\n\tY : " + Y + "\n\tR : " + Rotation;
+            toReturn += "\n\t" + (FieldCentric ? "" : "Not ") + "Field Centric Control";
+            toReturn += "\n\t" + (Enabled ? "" : "Not ") + "Enabled";
+
+            return toReturn;
         }
     }
 }
