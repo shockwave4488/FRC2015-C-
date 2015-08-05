@@ -15,7 +15,10 @@ namespace Iterative_Robot
     {
         Joysticks joysticks;
         Drive mecDrive; 
-        Compressor compressor;
+        //Compressor compressor;
+        Elevator elevator;
+        ToteChute toteChute;
+        Arm arm;
 
         /**
          * This function is run when the robot is first started up and should be
@@ -23,14 +26,18 @@ namespace Iterative_Robot
          */
         public override void RobotInit()
         {
+            Constants.initArmLocations();
+            Constants.initLiftLocations();
+
             joysticks = new Joysticks();
             mecDrive = new Drive();
-            compressor = new Compressor();
+            elevator = new Elevator();
+            toteChute = new ToteChute();
+            arm = new Arm();
+
+            //compressor = new Compressor();
 
             //compressor.Start();
-
-            Constants.initLiftLocations();
-            Constants.initArmLocations();
         }
 
         /**
@@ -46,11 +53,11 @@ namespace Iterative_Robot
          */
         public override void TeleopPeriodic()
         {
-            mecDrive.X = joysticks.getPrimaryAxis(PrimaryAxisControls.DriveX);
-            mecDrive.Y = joysticks.getPrimaryAxis(PrimaryAxisControls.DriveY);
-            mecDrive.Rotation = joysticks.getPrimaryAxis(PrimaryAxisControls.DriveRotate);
+            mecDrive.X = joysticks.GetPrimaryAxis(PrimaryAxisControls.DriveX);
+            mecDrive.Y = joysticks.GetPrimaryAxis(PrimaryAxisControls.DriveY);
+            mecDrive.Rotation = joysticks.GetPrimaryAxis(PrimaryAxisControls.DriveRotate);
 
-            mecDrive.FieldCentric = joysticks.getPrimaryButton(PrimaryButtonControls.Toggle_Field_Centric);
+            mecDrive.FieldCentric = joysticks.GetPrimaryButton(PrimaryButtonControls.ToggleFieldCentric);
 
             mecDrive.Update(null); //Debug this by Disabling X Movement.
         }
@@ -60,7 +67,44 @@ namespace Iterative_Robot
          */
         public override void TestPeriodic()
         {
+            /*
+            //Elevator Testing
+            if (joysticks.GetSecondaryButton(SecondaryButtonControls.Auto_Stack))
+                elevator.loc = ElevatorLocation.Bottom;
+            else if (joysticks.GetSecondaryButton(SecondaryButtonControls.Claw_Open))
+                elevator.loc = ElevatorLocation.Pickup;
+            else if (joysticks.GetSecondaryButton(SecondaryButtonControls.Reset))
+                elevator.loc = ElevatorLocation.Stabilize;
+            else if (joysticks.GetSecondaryButton(SecondaryButtonControls.Arm_Up))
+                elevator.loc = ElevatorLocation.First_Tote;
+            else if (joysticks.GetSecondaryButton(SecondaryButtonControls.Manual_Arm))
+                elevator.loc = ElevatorLocation.High;
+            else if (joysticks.GetSecondaryButton(SecondaryButtonControls.Manual_Elevator))
+                elevator.Enabled = false;
+            */
 
+            if (joysticks.GetSecondaryButton(SecondaryButtonControls.ArmUp))
+                arm.loc = ArmLocation.High;
+            else if (joysticks.GetSecondaryButton(SecondaryButtonControls.AutoStack))
+                arm.loc = ArmLocation.Low;
+            else if (joysticks.GetSecondaryButton(SecondaryButtonControls.Reset))
+
+                arm.loc = ArmLocation.Release;
+            else if (joysticks.GetSecondaryButton(SecondaryButtonControls.ManualArm))
+                arm.Enabled = false;
+
+            arm.clawState = joysticks.GetSecondaryButton(SecondaryButtonControls.ClawOpen);
+            /*
+            //tote Chute Testing
+            toteChute.RampIn = joysticks.GetPrimaryButton(PrimaryButtonControls.ToteRamp);
+            toteChute.Stopper = joysticks.GetPrimaryButton(PrimaryButtonControls.DriveReduction);
+            toteChute.output = joysticks.GetPrimaryButton(PrimaryButtonControls.Output);
+            */
+
+            //elevator.Update(joysticks.GetSecondaryAxis(SecondaryAxisControls.ManualElevator));
+            //toteChute.Update(null);
+            arm.Update(joysticks.GetSecondaryAxis(SecondaryAxisControls.ManualArm));
+            //WPILib.SmartDashboards.SmartDashboard.PutString("Tote Chute Status", toteChute.Print());
         }
 
     }

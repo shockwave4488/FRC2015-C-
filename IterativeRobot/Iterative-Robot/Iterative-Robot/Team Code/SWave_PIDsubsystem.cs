@@ -27,13 +27,13 @@ namespace Iterative_Robot.Team_Code
         {
             get { return (sensor.get() < PID.setpoint + tolerance) && (sensor.get() > PID.setpoint - tolerance); }
         }
-        public int setpointName
+        public virtual int SetPoint
         {
             get { return setpointName_; }
             set { PID.setpoint = value; }
         }
 
-        public virtual void Update(object UNUSED)
+        public virtual void Update(object Paremeter)
         {
             PID.Update(sensor.get());
             Motor.Set(PID.get(sensor.get()));
@@ -51,7 +51,10 @@ namespace Iterative_Robot.Team_Code
             toReturn += "\n\t" + (Enabled ? "" : "Not ") + "Enabled";
             return toReturn;
         }
-
+        
+        /// <summary>
+        /// should return string representation of the setpoint.
+        /// </summary>
         protected abstract string printSetpointName();
     }
 }

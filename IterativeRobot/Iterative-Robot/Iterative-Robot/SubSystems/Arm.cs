@@ -14,7 +14,7 @@ namespace Iterative_Robot.SubSystems
     /// <summary>
     /// Can-Grabbing Arm System
     /// </summary>
-    public class Arm : Team_Code.SWave_IStandard<object>
+    public class Arm : Team_Code.SWave_IStandard<double>
     {
         private Talon ArmMotor;
         private DoubleSolenoid claw;
@@ -51,20 +51,22 @@ namespace Iterative_Robot.SubSystems
             pot = new AnalogPotentiometer(new AnalogInput(Constants.ArmPotChannel));
             limit = new Team_Code.SWave_AccelLimit(0.1);
             PID = new Team_Code.SWave_PID(Constants.ArmP, 0, Constants.ArmD);
+            Enabled = true;
         }
 
-        public void Update(object UNUSED)
+        public void Update(double manual)
         {
-            double value = PID.get(pot.Get());
+            limit.Update(PID.get(pot.Get()));
+            double value = limit.Get();
 
-            if (Enabled)
-                value = 0;
+            if (!Enabled)
+                value = manual;
             else if (pot.Get() > Constants.ArmLimitHigh)
                 value = Math.Min(0, value);
             else if (pot.Get() > Constants.ArmLimitLow)
                 value = Math.Max(0, value);
 
-            ArmMotor.Set(value);
+            ArmMotor.Set(Math.Max(-0.7, Math.Min(0.4, value)));
             claw.Set(clawState ? DoubleSolenoid.Value.Forward : DoubleSolenoid.Value.Reverse);
         }
 

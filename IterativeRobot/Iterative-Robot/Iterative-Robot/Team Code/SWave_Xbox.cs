@@ -10,7 +10,7 @@ namespace Iterative_Robot.Team_Code
     /// <summary>
     /// Xbox mapped button enumerator
     /// </summary>
-    public enum XboxButtons { A, B, X, Y, Left_Bumper, Right_Bumper, Back, Start, Left_Joystick, Right_Joystick }
+    public enum XboxButtons { A = 1, B, X, Y, Left_Bumper, Right_Bumper, Back, Start, Left_Joystick, Right_Joystick }
     
     /// <summary>
     /// Xbos mapped axis enumerator
@@ -35,10 +35,12 @@ namespace Iterative_Robot.Team_Code
 
         public double getAxis(XboxAxes axis)
         {
-            return base.GetRawAxis((int)axis);
+            if (axis == XboxAxes.Left_Y || axis == XboxAxes.Right_Y)
+                return -fixDeadZone(base.GetRawAxis((int)axis));
+            return fixDeadZone(base.GetRawAxis((int)axis));
         }
 
-        public double fixDeadZone(double valueIn)
+        private double fixDeadZone(double valueIn)
         {
             return (Math.Abs(valueIn) < DeadZone ? 0 : valueIn);
         }

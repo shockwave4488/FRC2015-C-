@@ -15,7 +15,7 @@ namespace Iterative_Robot.SubSystems
     /// <summary>
     /// Elevator Subsystem
     /// </summary>
-    public class Elevator : Team_Code.SWave_IStandard<object>
+    public class Elevator : Team_Code.SWave_IStandard<double>
     {
         private Talon ElevatorMotor;
         private AnalogPotentiometer pot;
@@ -52,21 +52,23 @@ namespace Iterative_Robot.SubSystems
             ElevatorMotor = new Talon(Constants.LiftPort);
             PID = new Team_Code.SWave_PID(Constants.LiftP, 0, Constants.LiftD);
             pause = false; Enabled = true;
-            limit = new Team_Code.SWave_AccelLimit(0.15);
+            limit = new Team_Code.SWave_AccelLimit(0.15, true, false);
+            loc = ElevatorLocation.Bottom;
         }
 
-        public void Update(object UNUSED)
+        public void Update(double manual)
         {
-            double value = PID.get(pot.Get());
+            limit.Update(PID.get(pot.Get()));
+            double value = limit.Get();
 
             if (!Enabled)
-                value = 0;
+                value = manual;
             else if (pot.Get() > Constants.LiftLimitHigh)
                 value = Math.Min(0, value);
             else if (pot.Get() < Constants.LiftLimitLow)
                 value = Math.Max(0, value);
 
-            ElevatorMotor.Set(value);
+            ElevatorMotor.Set(-value);
         }
 
         public string Print()

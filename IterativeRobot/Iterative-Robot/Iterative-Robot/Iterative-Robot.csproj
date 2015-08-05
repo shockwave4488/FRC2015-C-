@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="State Machines\Stacker.cs" />
     <Compile Include="SubSystems\Arm.cs" />
     <Compile Include="SubSystems\CanBurglar.cs" />
     <Compile Include="SubSystems\Drive.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Team Code\SWave_PID.cs" />
     <Compile Include="Team Code\SWave_Potentiometer.cs" />
     <Compile Include="Team Code\SWave_Toggle.cs" />
+    <Compile Include="Team Code\SWave_WaitByCallCount.cs" />
     <Compile Include="Team Code\SWave_Xbox.cs" />
     <Compile Include="Team Code\SWave_IStandard.cs" />
   </ItemGroup>

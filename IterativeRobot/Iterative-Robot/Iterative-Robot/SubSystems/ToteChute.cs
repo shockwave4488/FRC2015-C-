@@ -14,7 +14,7 @@ namespace Iterative_Robot.SubSystems
     /// <summary>
     /// Subsystem including ramp, conveyor, and tote stopper
     /// </summary>
-    public class ToteChute
+    public class ToteChute : Team_Code.SWave_IStandard<object>
     {
         private DoubleSolenoid ramp;
         private DoubleSolenoid stop;
@@ -22,7 +22,10 @@ namespace Iterative_Robot.SubSystems
         private DigitalInput backBeam;
         private DigitalInput frontBeam;
 
-        public bool stacking { get; set; }
+        public string Name { get; set; }
+        public bool Enabled { get; set; }
+        public bool Stopper { get; set; }
+        public bool RampIn { get; set; }
         public bool output { get; set; }
 
         public ToteChute()
@@ -32,9 +35,10 @@ namespace Iterative_Robot.SubSystems
             conveyor = new Talon(Constants.ConveyorPort);
             backBeam = new DigitalInput(Constants.BeamBackChannel);
             frontBeam = new DigitalInput(Constants.BeamFrontChannel);
+            Name = ""; Enabled = true;
         }
 
-        public void update()
+        public void Update(object UNUSED)
         {
             if (output)
                 conveyor.Set(Math.Abs(Constants.Conveyor_OutputSpeed)); //Replace with OutSpeed
@@ -42,19 +46,51 @@ namespace Iterative_Robot.SubSystems
                 conveyor.Set(-Math.Abs(Constants.Conveyor_InSpeed));
             else if (getState() == conveyorState.Out)
                 conveyor.Set(Math.Abs(Constants.Conveyor_OutSpeed));
+            else if (getState() == conveyorState.Done)
+                conveyor.Set(0);
 
-            stop.Set(stacking ? DoubleSolenoid.Value.Forward : DoubleSolenoid.Value.Reverse);
+            stop.Set(Stopper ? DoubleSolenoid.Value.Forward : DoubleSolenoid.Value.Reverse);
+            ramp.Set(RampIn ? DoubleSolenoid.Value.Reverse : DoubleSolenoid.Value.Forward);
         }
 
-        private conveyorState getState()
+        public conveyorState getState()
         {
-            if (backBeam.Get() && frontBeam.Get())
+            //True == Broken
+            if (!backBeam.Get() && !frontBeam.Get())
                 return conveyorState.Out;
-            if (frontBeam.Get() && !backBeam.Get())
+            if (!frontBeam.Get() && backBeam.Get())
                 return conveyorState.Done;
-            if (!frontBeam.Get() && !backBeam.Get())
+            if (frontBeam.Get() && backBeam.Get())
                 return conveyorState.In;
             return conveyorState.Invalid;
+        }
+
+        public static string PrintConveyorState(conveyorState state)
+        {
+            switch (state)
+            {
+                case conveyorState.Done:
+                    return "Done";
+                case conveyorState.In:
+                    return "In";
+                case conveyorState.Out:
+                    return "Out";
+                case conveyorState.Invalid:
+                    return "Invalid";
+                default:
+                    return "NOT A VALID STATE";
+            }
+        }
+
+        public string Print()
+        {
+            string toReturn = Name + " " + GetType();
+
+            toReturn += "\n\tCurrent Tote State: " + PrintConveyorState(getState());
+            toReturn += "\n\tBack Beam Break: " + backBeam.Get();
+            toReturn += "\n\tFront Beam Break: " + frontBeam.Get();
+
+            return toReturn;
         }
     }
 }

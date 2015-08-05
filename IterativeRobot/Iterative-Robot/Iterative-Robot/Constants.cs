@@ -15,12 +15,12 @@ namespace Iterative_Robot
     static class Constants
     {
         //PWM Channels
-        public static int DriveLFPort = 2;
-        public static int DriveLRPort = 0;
+        public static int DriveLFPort = 0;
+        public static int DriveLRPort = 1;
         public static int DriveRFPort = 3;
-        public static int DriveRRPort = 1;
-        public static int LiftPort = 5;
-        public static int ArmPort = 7;
+        public static int DriveRRPort = 2;
+        public static int LiftPort = 7;
+        public static int ArmPort = 5;
         public static int ConveyorPort = 4;
 
         //Solenoid Channels
@@ -34,8 +34,8 @@ namespace Iterative_Robot
         public static int StopChannel_Reverse = 7;
 
         //Digital IO Channels
-        public static int BeamBackChannel = 13;
-        public static int BeamFrontChannel = 12;
+        public static int BeamBackChannel = 23;
+        public static int BeamFrontChannel = 22;
         public static int HallEffectChannel = 9;
 
         //Analogue Sensor Channels
@@ -71,13 +71,17 @@ namespace Iterative_Robot
 
         //Secondary Driver Button Controls
         public static XboxButtons Secondary_AutoStack = XboxButtons.A;
-        public static XboxButtons Secondary_ArmUp = XboxButtons.Left_Bumper;
-        public static XboxButtons Secondary_ManualClaw = XboxButtons.Start;
-        public static XboxButtons Secondary_ManualElevator = XboxButtons.Back;
+        public static XboxButtons Secondary_ArmUp = XboxButtons.Right_Bumper;
+        public static XboxButtons Secondary_ManualArmEnable = XboxButtons.Start;
+        public static XboxButtons Secondary_ManualElevatorEnable = XboxButtons.Back;
         public static XboxButtons Secondary_ClawOpen = XboxButtons.X;
         public static XboxButtons Secondary_Reset = XboxButtons.Y;
         public static XboxButtons Secondary_Pause = XboxButtons.B;
         public static XboxButtons Secondary_CanBurglar = XboxButtons.Left_Joystick;
+
+        //Secondary Driver Axis Controls
+        public static XboxAxes Secondary_ManualArm = XboxAxes.Left_X;
+        public static XboxAxes Secondary_ManualElevator = XboxAxes.Right_Y;
 
         //Misc Variables
         public static double DriveAccelLimit = 0.2;

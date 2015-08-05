@@ -12,10 +12,10 @@ namespace Iterative_Robot.SubSystems
     /// </summary>
     public enum PrimaryButtonControls
     {
-        Reset_Gyro, Toggle_Field_Centric, Clear_Faults,
-        Drive_Reduction, Output, Left_Align, Right_Align,
-        Center, Tote_Ramp, Strafe_Left, Strafe_Right, Strafe_Down,
-        Strafe_Up
+        ResetGyro, ToggleFieldCentric, ClearFaults,
+        DriveReduction, Output, LeftAlign, RightAlign,
+        Center, ToteRamp, StrafeLeft, StrafeRight, StrafeDown,
+        StrafeUp
     }
 
     /// <summary>
@@ -28,9 +28,11 @@ namespace Iterative_Robot.SubSystems
     /// </summary>
     public enum SecondaryButtonControls
     {
-        Auto_Stack, Arm_Up, Manual_Arm, Manual_Elevator,
-        Claw_Open, Reset, Can_Burglar
+        AutoStack, ArmUp, ManualArm, ManualElevator,
+        ClawOpen, Reset, CanBurglar
     }
+
+    public enum SecondaryAxisControls { ManualArm, ManualElevator }
 
     /// <summary>
     /// Contains references for both primary and secondary joysticks
@@ -48,35 +50,35 @@ namespace Iterative_Robot.SubSystems
             Secondary = new SWave_Xbox(Constants.Secondary_Port);
         }
 
-        public bool getPrimaryButton(PrimaryButtonControls action)
+        public bool GetPrimaryButton(PrimaryButtonControls action)
         {
             switch (action)
             {
-                case PrimaryButtonControls.Reset_Gyro:
+                case PrimaryButtonControls.ResetGyro:
                     return Primary_Left.GetButton(Constants.Primary_Left_GyroReset);
-                case PrimaryButtonControls.Toggle_Field_Centric:
+                case PrimaryButtonControls.ToggleFieldCentric:
                     return Primary_Left.GetButton(Constants.Primary_Left_ToggleFieldCentric);
-                case PrimaryButtonControls.Clear_Faults:
+                case PrimaryButtonControls.ClearFaults:
                     return Primary_Left.GetButton(Constants.Primary_Left_ClearFaults);
-                case PrimaryButtonControls.Drive_Reduction:
+                case PrimaryButtonControls.DriveReduction:
                     return Primary_Left.GetButton(Constants.Primary_Left_DriveReduction);
                 case PrimaryButtonControls.Output:
                     return Primary_Left.GetButton(Constants.Primary_Left_Output);
-                case PrimaryButtonControls.Left_Align:
+                case PrimaryButtonControls.LeftAlign:
                     return Primary_Left.GetButton(Constants.Primary_Left_AlignLeft);
-                case PrimaryButtonControls.Right_Align:
+                case PrimaryButtonControls.RightAlign:
                     return Primary_Left.GetButton(Constants.Primary_Left_AlignRight);
                 case PrimaryButtonControls.Center:
                     return Primary_Left.GetButton(Constants.Primary_Left_AlignCenter);
-                case PrimaryButtonControls.Tote_Ramp:
+                case PrimaryButtonControls.ToteRamp:
                     return Primary_Right.GetButton(Constants.Primary_Right_ToteRamp);
-                case PrimaryButtonControls.Strafe_Left:
+                case PrimaryButtonControls.StrafeLeft:
                     return Primary_Right.GetButton(Constants.Primary_Right_Strafe_Left);
-                case PrimaryButtonControls.Strafe_Right:
+                case PrimaryButtonControls.StrafeRight:
                     return Primary_Right.GetButton(Constants.Primary_Right_Strafe_Right);
-                case PrimaryButtonControls.Strafe_Down:
+                case PrimaryButtonControls.StrafeDown:
                     return Primary_Right.GetButton(Constants.Primary_Right_Strafe_Down);
-                case PrimaryButtonControls.Strafe_Up:
+                case PrimaryButtonControls.StrafeUp:
                     return Primary_Right.GetButton(Constants.Primary_Right_Strafe_Up);
                 default:
                     return false;
@@ -85,7 +87,7 @@ namespace Iterative_Robot.SubSystems
 
         }
 
-        public double getPrimaryAxis(PrimaryAxisControls action)
+        public double GetPrimaryAxis(PrimaryAxisControls action)
         {
             switch (action)
             {
@@ -95,6 +97,42 @@ namespace Iterative_Robot.SubSystems
                     return Primary_Left.GetAxis(Constants.Primary_Drive_ForwardBack);
                 case PrimaryAxisControls.DriveRotate:
                     return Primary_Right.GetAxis(Constants.Primary_Drive_R);
+                default:
+                    return 0;
+            }
+        }
+
+        public bool GetSecondaryButton(SecondaryButtonControls action)
+        {
+            switch (action)
+            {
+                case SecondaryButtonControls.AutoStack:
+                    return Secondary.getButton(Constants.Secondary_AutoStack);
+                case SecondaryButtonControls.ArmUp:
+                    return Secondary.getButton(Constants.Secondary_ArmUp);
+                case SecondaryButtonControls.ManualArm:
+                    return Secondary.getButton(Constants.Secondary_ManualArmEnable);
+                case SecondaryButtonControls.ManualElevator:
+                    return Secondary.getButton(Constants.Secondary_ManualElevatorEnable);
+                case SecondaryButtonControls.ClawOpen:
+                    return Secondary.getButton(Constants.Secondary_ClawOpen);
+                case SecondaryButtonControls.Reset:
+                    return Secondary.getButton(Constants.Secondary_Reset);
+                case SecondaryButtonControls.CanBurglar:
+                    return Secondary.getButton(Constants.Secondary_CanBurglar);
+                default:
+                    return false;
+            }
+        }
+
+        public double GetSecondaryAxis(SecondaryAxisControls action)
+        {
+            switch (action)
+            {
+                case SecondaryAxisControls.ManualArm:
+                    return Secondary.getAxis(Constants.Secondary_ManualArm);
+                case SecondaryAxisControls.ManualElevator:
+                    return Secondary.getAxis(Constants.Secondary_ManualElevator);
                 default:
                     return 0;
             }
