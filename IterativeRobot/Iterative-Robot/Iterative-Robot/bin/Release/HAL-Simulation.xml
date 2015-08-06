@@ -1,0 +1,2104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>HAL-Simulation</name>
+  </assembly>
+  <members>
+    <member name="T:HAL_Simulator.CalledSimFunction">
+      <summary>
+            This attribute is added to any Sim functions that are called from base.
+            It helps make sure that our delegates will work.
+            </summary>
+    </member>
+    <member name="M:HAL_Simulator.CalledSimFunction.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>HAL_Simulator.CalledSimFunction</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:HAL_Simulator.CounterHelper">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.CounterHelper</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.CounterHelper.GetCounterFromPin(System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.CounterHelper.GetCounterFromPin(System.Int32)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="pin">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>pin</parameter>
+            <parameter>M:HAL_Simulator.CounterHelper.GetCounterFromPin(System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.CounterHelper.GetCounterFromPin(System.Int32)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.CounterHelper.GetEncoderFromPin(System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.CounterHelper.GetEncoderFromPin(System.Int32)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="pin">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>pin</parameter>
+            <parameter>M:HAL_Simulator.CounterHelper.GetEncoderFromPin(System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.CounterHelper.GetEncoderFromPin(System.Int32)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.CounterHelper.SetCounterCount(System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.CounterHelper.SetCounterCount(System.Int32)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="count">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>count</parameter>
+            <parameter>M:HAL_Simulator.CounterHelper.SetCounterCount(System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.CounterHelper.SetCounterPeriod(System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.CounterHelper.SetCounterPeriod(System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="period">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>period</parameter>
+            <parameter>M:HAL_Simulator.CounterHelper.SetCounterPeriod(System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="T:HAL_Simulator.DCMotor">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.DCMotor</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.DCMotor.#ctor(System.Double,System.Double,System.Double,System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>HAL_Simulator.DCMotor</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="kt">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>kt</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.#ctor(System.Double,System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="kv">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>kv</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.#ctor(System.Double,System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="resistance">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>resistance</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.#ctor(System.Double,System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="inertia">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>inertia</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.#ctor(System.Double,System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.DCMotor.GetCurrent">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.GetCurrent</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.GetCurrent</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.DCMotor.GetPosition">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.GetPosition</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.GetPosition</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.DCMotor.GetVelocity">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.GetVelocity</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.GetVelocity</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="F:HAL_Simulator.DCMotor.m_current">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.DCMotor.m_current</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.DCMotor.m_kt">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.DCMotor.m_kt</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.DCMotor.m_kv">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.DCMotor.m_kv</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.DCMotor.m_motor_inertia">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.DCMotor.m_motor_inertia</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.DCMotor.m_position">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.DCMotor.m_position</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.DCMotor.m_resistance">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.DCMotor.m_resistance</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.DCMotor.m_velocity">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.DCMotor.m_velocity</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.DCMotor.MakeCIM">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.MakeCIM</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.MakeCIM</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.DCMotor.MakeRS550">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.MakeRS550</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.MakeRS550</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.DCMotor.MakeRS775">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.MakeRS775</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.MakeRS775</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.DCMotor.MakeTransmission(HAL_Simulator.DCMotor,System.Int32,System.Double,System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.MakeTransmission(HAL_Simulator.DCMotor,System.Int32,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="motor">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>motor</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.MakeTransmission(HAL_Simulator.DCMotor,System.Int32,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="num_motors">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>num_motors</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.MakeTransmission(HAL_Simulator.DCMotor,System.Int32,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="gear_reduction">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>gear_reduction</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.MakeTransmission(HAL_Simulator.DCMotor,System.Int32,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="efficiency">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>efficiency</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.MakeTransmission(HAL_Simulator.DCMotor,System.Int32,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.MakeTransmission(HAL_Simulator.DCMotor,System.Int32,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.DCMotor.Reset(System.Double,System.Double,System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.Reset(System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="position">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>position</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.Reset(System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="velocity">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>velocity</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.Reset(System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="current">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>current</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.Reset(System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.DCMotor.Step(System.Double,System.Double,System.Double,System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.Step(System.Double,System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="applied_voltage">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>applied_voltage</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.Step(System.Double,System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="load">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>load</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.Step(System.Double,System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="external_torque">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>external_torque</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.Step(System.Double,System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="timestep">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>timestep</parameter>
+            <parameter>M:HAL_Simulator.DCMotor.Step(System.Double,System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="T:HAL_Simulator.DriverStationHelper">
+      <summary>
+            This class is useful to emulate a driver station correctly in the simulator.
+            </summary>
+    </member>
+    <member name="M:HAL_Simulator.DriverStationHelper.SetAllianceStation(HAL_Base.HALAllianceStationID)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.DriverStationHelper.SetAllianceStation(HAL_Base.HALAllianceStationID)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="station">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>station</parameter>
+            <parameter>M:HAL_Simulator.DriverStationHelper.SetAllianceStation(HAL_Base.HALAllianceStationID)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.DriverStationHelper.SetDSAttached(System.Boolean)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.DriverStationHelper.SetDSAttached(System.Boolean)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="attached">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>attached</parameter>
+            <parameter>M:HAL_Simulator.DriverStationHelper.SetDSAttached(System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.DriverStationHelper.SetEnabledState(HAL_Simulator.DriverStationHelper.EnabledState)">
+      <summary>
+            Sets the robot enabled state
+            </summary>
+      <param name="state">The state to set</param>
+    </member>
+    <member name="M:HAL_Simulator.DriverStationHelper.SetFMSAttached(System.Boolean)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.DriverStationHelper.SetFMSAttached(System.Boolean)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="attached">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>attached</parameter>
+            <parameter>M:HAL_Simulator.DriverStationHelper.SetFMSAttached(System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.DriverStationHelper.SetJoystickAxis(System.Int32,System.Int32,System.Double)">
+      <summary>
+            Set the value for a specific joystick axis
+            </summary>
+      <param name="joystickNum">The joystick index</param>
+      <param name="axisNum">The axis number</param>
+      <param name="value">The joystick value from -1.0 to 1.0</param>
+    </member>
+    <member name="M:HAL_Simulator.DriverStationHelper.SetJoystickButton(System.Int32,System.Int32,System.Boolean)">
+      <summary>
+            Set the value for a specific joystick button
+            </summary>
+      <param name="joystickNum">The joystick index</param>
+      <param name="buttonNum">The button number</param>
+      <param name="value">The button value</param>
+    </member>
+    <member name="M:HAL_Simulator.DriverStationHelper.SetJoystickName(System.Int32,System.String)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.DriverStationHelper.SetJoystickName(System.Int32,System.String)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="joystickNum">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>joystickNum</parameter>
+            <parameter>M:HAL_Simulator.DriverStationHelper.SetJoystickName(System.Int32,System.String)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="name">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>name</parameter>
+            <parameter>M:HAL_Simulator.DriverStationHelper.SetJoystickName(System.Int32,System.String)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.DriverStationHelper.SetJoystickPOV(System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Sets the value for a specific joystick POV, in degrees
+            </summary>
+      <param name="joystickNum">The joystick index</param>
+      <param name="povNum">The pov number</param>
+      <param name="povValue">The pov value (-1 if not pressed, degrees otherwise)</param>
+    </member>
+    <member name="M:HAL_Simulator.DriverStationHelper.SetRobotMode(HAL_Simulator.DriverStationHelper.RobotMode)">
+      <summary>
+            Sets the robot mode
+            </summary>
+      <param name="mode">The robot mode to set</param>
+    </member>
+    <member name="M:HAL_Simulator.DriverStationHelper.StartDSLoop">
+      <summary>
+            Start the driver station loop at the default 20ms interval
+            </summary>
+    </member>
+    <member name="M:HAL_Simulator.DriverStationHelper.StartDSLoop(System.Int32)">
+      <summary>
+            Start the driver station loop at the requested interval
+            </summary>
+      <param name="loopTime">The loop interval in ms</param>
+    </member>
+    <member name="M:HAL_Simulator.DriverStationHelper.StartDSLoop(System.TimeSpan)">
+      <summary>
+            Start the driver station loop at the requested interval
+            </summary>
+      <param name="loopTime">The loop interval</param>
+    </member>
+    <member name="M:HAL_Simulator.DriverStationHelper.StopDSLoop">
+      <summary>
+            Stop the driver station loop
+            </summary>
+    </member>
+    <member name="T:HAL_Simulator.DriverStationHelper.EnabledState">
+      <summary>
+            The robot enabled state
+            </summary>
+    </member>
+    <member name="F:HAL_Simulator.DriverStationHelper.EnabledState.Enabled"></member>
+    <member name="F:HAL_Simulator.DriverStationHelper.EnabledState.Disabled"></member>
+    <member name="F:HAL_Simulator.DriverStationHelper.EnabledState.EStopped"></member>
+    <member name="T:HAL_Simulator.DriverStationHelper.RobotMode">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.DriverStationHelper.RobotMode</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.DriverStationHelper.RobotMode.Autonomous"></member>
+    <member name="F:HAL_Simulator.DriverStationHelper.RobotMode.Teleop"></member>
+    <member name="F:HAL_Simulator.DriverStationHelper.RobotMode.Test"></member>
+    <member name="T:HAL_Simulator.NotifyDict`2">
+      <summary>
+            This class allows us to listen for changes in a specific part of the dictionary. 
+            </summary>
+      <typeparam name="TKey">Please use dynamic</typeparam>
+      <typeparam name="TValue">Please use dynamic</typeparam>
+    </member>
+    <member name="M:HAL_Simulator.NotifyDict`2.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>HAL_Simulator.NotifyDict`2</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.NotifyDict`2.Cancel(`0,System.Action{System.Object,System.Object})">
+      <summary>
+            Cancel a notify function
+            </summary>
+      <param name="key">The key the function is waiting for</param>
+      <param name="action">The callback function to cancel.</param>
+    </member>
+    <member name="P:HAL_Simulator.NotifyDict`2.Item(`0)">
+      <summary>
+            Gets or sets the value associated with the specified key. If a callback exists for the key, call it.
+            </summary>
+      <param name="key">The key of the value to get or set.</param>
+      <returns>The value associated with the specified key.</returns>
+    </member>
+    <member name="M:HAL_Simulator.NotifyDict`2.Register(`0,System.Action{System.Object,System.Object},System.Boolean)">
+      <summary>
+            Register a notify function to get called when the field updates.
+            </summary>
+      <param name="key">The key to watch</param>
+      <param name="action">The callback function</param>
+      <param name="notify">Whether to notify immediately</param>
+    </member>
+    <member name="T:HAL_Simulator.PotentiometerMechanism">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.PotentiometerMechanism</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.PotentiometerMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimAnalogInput,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,System.Double,System.Boolean)">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>HAL_Simulator.PotentiometerMechanism</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="input">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>input</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimAnalogInput,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,System.Double,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="output">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>output</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimAnalogInput,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,System.Double,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="pdp_channel">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>pdp_channel</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimAnalogInput,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,System.Double,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="voltage_per_tick">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>voltage_per_tick</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimAnalogInput,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,System.Double,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="model">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>model</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimAnalogInput,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,System.Double,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="load">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>load</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimAnalogInput,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,System.Double,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="start_voltage">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>start_voltage</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimAnalogInput,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,System.Double,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="invert">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>invert</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimAnalogInput,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,System.Double,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.PotentiometerMechanism.GetVoltage">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.GetVoltage</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.GetVoltage</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="F:HAL_Simulator.PotentiometerMechanism.m_input">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.PotentiometerMechanism.m_input</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.PotentiometerMechanism.m_inverted">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.PotentiometerMechanism.m_inverted</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.PotentiometerMechanism.m_load">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.PotentiometerMechanism.m_load</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.PotentiometerMechanism.m_model">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.PotentiometerMechanism.m_model</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.PotentiometerMechanism.m_output">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.PotentiometerMechanism.m_output</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.PotentiometerMechanism.m_pdp_channel">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.PotentiometerMechanism.m_pdp_channel</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.PotentiometerMechanism.m_start_voltage">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.PotentiometerMechanism.m_start_voltage</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.PotentiometerMechanism.m_voltage_per_tick">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.PotentiometerMechanism.m_voltage_per_tick</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.PotentiometerMechanism.Reset(System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.Reset(System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="voltage">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>voltage</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.Reset(System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.PotentiometerMechanism.SetLoad(System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.SetLoad(System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="load">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>load</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.SetLoad(System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.PotentiometerMechanism.Step(System.Double,System.Double,System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.Step(System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="battery_voltage">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>battery_voltage</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.Step(System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="acceleration">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>acceleration</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.Step(System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="timestep">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>timestep</parameter>
+            <parameter>M:HAL_Simulator.PotentiometerMechanism.Step(System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="T:HAL_Simulator.PWMHelpers">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.PWMHelpers</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.PWMHelpers.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>HAL_Simulator.PWMHelpers</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.PWMHelpers.rev_pwm(System.Double,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.rev_pwm(System.Double,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.rev_pwm(System.Double,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="maxPosPWM">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>maxPosPWM</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.rev_pwm(System.Double,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="minPosPWM">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>minPosPWM</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.rev_pwm(System.Double,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="posScale">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>posScale</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.rev_pwm(System.Double,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="maxNegPWM">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>maxNegPWM</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.rev_pwm(System.Double,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="minNegPWM">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>minNegPWM</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.rev_pwm(System.Double,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="negScale">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>negScale</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.rev_pwm(System.Double,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.rev_pwm(System.Double,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.PWMHelpers.ReverseByType(System.Object,System.Object)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseByType(System.Object,System.Object)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="definingVal">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>definingVal</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseByType(System.Object,System.Object)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseByType(System.Object,System.Object)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseByType(System.Object,System.Object)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.PWMHelpers.ReverseJaguarPWM(System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseJaguarPWM(System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseJaguarPWM(System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseJaguarPWM(System.Double)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.PWMHelpers.ReverseTalonPWM(System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseTalonPWM(System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseTalonPWM(System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseTalonPWM(System.Double)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.PWMHelpers.ReverseTalonSRXPWM(System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseTalonSRXPWM(System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseTalonSRXPWM(System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseTalonSRXPWM(System.Double)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.PWMHelpers.ReverseVictorPWM(System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseVictorPWM(System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseVictorPWM(System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseVictorPWM(System.Double)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.PWMHelpers.ReverseVictorSPPWM(System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseVictorSPPWM(System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseVictorSPPWM(System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.PWMHelpers.ReverseVictorSPPWM(System.Double)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:HAL_Simulator.ServoMechanism">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.ServoMechanism</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.ServoMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimEncoder,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,HAL_Simulator.ServoMechanism.Limits)">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>HAL_Simulator.ServoMechanism</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="input">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>input</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimEncoder,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,HAL_Simulator.ServoMechanism.Limits)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="output">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>output</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimEncoder,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,HAL_Simulator.ServoMechanism.Limits)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="pdp_channel">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>pdp_channel</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimEncoder,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,HAL_Simulator.ServoMechanism.Limits)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="encoder_distance_per_tick">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>encoder_distance_per_tick</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimEncoder,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,HAL_Simulator.ServoMechanism.Limits)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="model">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>model</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimEncoder,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,HAL_Simulator.ServoMechanism.Limits)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="load">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>load</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimEncoder,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,HAL_Simulator.ServoMechanism.Limits)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="limits">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>limits</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.#ctor(HAL_Simulator.Outputs.ISimSpeedController,HAL_Simulator.Inputs.SimEncoder,System.Int32,System.Double,HAL_Simulator.DCMotor,System.Double,HAL_Simulator.ServoMechanism.Limits)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="F:HAL_Simulator.ServoMechanism.m_encoder_distance_per_tick">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.ServoMechanism.m_encoder_distance_per_tick</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.ServoMechanism.m_input">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.ServoMechanism.m_input</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.ServoMechanism.m_limits">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.ServoMechanism.m_limits</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.ServoMechanism.m_load">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.ServoMechanism.m_load</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.ServoMechanism.m_model">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.ServoMechanism.m_model</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.ServoMechanism.m_output">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.ServoMechanism.m_output</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.ServoMechanism.m_pdp_channel">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.ServoMechanism.m_pdp_channel</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.ServoMechanism.m_start_position">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.ServoMechanism.m_start_position</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.ServoMechanism.Reset(System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.Reset(System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="position">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>position</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.Reset(System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.ServoMechanism.SetLoad(System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.SetLoad(System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="load">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>load</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.SetLoad(System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.ServoMechanism.Step(System.Double,System.Double,System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.Step(System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="battery_voltage">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>battery_voltage</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.Step(System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="acceleration">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>acceleration</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.Step(System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="timestep">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>timestep</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.Step(System.Double,System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="T:HAL_Simulator.ServoMechanism.Limits">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.ServoMechanism.Limits</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.ServoMechanism.Limits.#ctor(System.Double,System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>HAL_Simulator.ServoMechanism.Limits</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="min">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>min</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.Limits.#ctor(System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="max">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>max</parameter>
+            <parameter>M:HAL_Simulator.ServoMechanism.Limits.#ctor(System.Double,System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="F:HAL_Simulator.ServoMechanism.Limits.max_position">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.ServoMechanism.Limits.max_position</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:HAL_Simulator.ServoMechanism.Limits.min_position">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.ServoMechanism.Limits.min_position</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:HAL_Simulator.SimData">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.SimData</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.SimData.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>HAL_Simulator.SimData</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.SimData.GetData(System.Collections.Generic.Dictionary{System.Object,System.Object}@,System.Collections.Generic.Dictionary{System.Object,System.Object}@,System.Collections.Generic.Dictionary{System.Object,System.Object}@)">
+      <summary>
+            This method gets a copy of both data dictionaries.
+            It is here for use with reflection. Please use the Properties instead
+            </summary>
+      <param name="halDataOut">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>halDataOut</parameter>
+            <parameter>M:HAL_Simulator.SimData.GetData(System.Collections.Generic.Dictionary{System.Object,System.Object}@,System.Collections.Generic.Dictionary{System.Object,System.Object}@,System.Collections.Generic.Dictionary{System.Object,System.Object}@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="halInDataOut">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>halInDataOut</parameter>
+            <parameter>M:HAL_Simulator.SimData.GetData(System.Collections.Generic.Dictionary{System.Object,System.Object}@,System.Collections.Generic.Dictionary{System.Object,System.Object}@,System.Collections.Generic.Dictionary{System.Object,System.Object}@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="halDSDataOut">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>halDSDataOut</parameter>
+            <parameter>M:HAL_Simulator.SimData.GetData(System.Collections.Generic.Dictionary{System.Object,System.Object}@,System.Collections.Generic.Dictionary{System.Object,System.Object}@,System.Collections.Generic.Dictionary{System.Object,System.Object}@)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="P:HAL_Simulator.SimData.HalData">
+      <summary>
+            Gets a reference to the HalData dictionary.
+            </summary>
+    </member>
+    <member name="P:HAL_Simulator.SimData.HalDSData">
+      <summary>
+            Gets a reference to the HalDSData dictionary.
+            </summary>
+    </member>
+    <member name="P:HAL_Simulator.SimData.HalInData">
+      <summary>
+            Gets a reference to the HalInData dictionary.
+            </summary>
+    </member>
+    <member name="M:HAL_Simulator.SimData.ResetHALData">
+      <summary>
+            Clears all HAL Sim Data and resets it.
+            </summary>
+    </member>
+    <member name="M:HAL_Simulator.SimData.UpdateHalData(System.Collections.Generic.Dictionary{System.Object,System.Object},System.Collections.Generic.Dictionary{System.Object,System.Object})">
+      <summary>
+            This function takes a dictionary, and updates it into the main HAL dictionary.
+            </summary>
+      <param name="inDict">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>inDict</parameter>
+            <parameter>M:HAL_Simulator.SimData.UpdateHalData(System.Collections.Generic.Dictionary{System.Object,System.Object},System.Collections.Generic.Dictionary{System.Object,System.Object})</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="outData">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>outData</parameter>
+            <parameter>M:HAL_Simulator.SimData.UpdateHalData(System.Collections.Generic.Dictionary{System.Object,System.Object},System.Collections.Generic.Dictionary{System.Object,System.Object})</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="T:HAL_Simulator.SimHooks">
+      <summary>
+            This class contains static hooks that can be used by simulators to get specific data.
+            </summary>
+    </member>
+    <member name="M:HAL_Simulator.SimHooks.DelayMillis(System.Double)">
+      <summary>
+            Delays the current thread by a number of milliseconds.
+            </summary>
+      <param name="ms">Delay time</param>
+    </member>
+    <member name="M:HAL_Simulator.SimHooks.DelaySeconds(System.Double)">
+      <summary>
+            Delays the current thread by a number of seconds.
+            </summary>
+      <param name="s">Delay time</param>
+    </member>
+    <member name="M:HAL_Simulator.SimHooks.GetFPGATime">
+      <summary>
+            Gets the FPGA time.
+            </summary>
+      <returns>The FPGA time on a 10 nanosecond scale.</returns>
+    </member>
+    <member name="M:HAL_Simulator.SimHooks.GetFPGATimestamp">
+      <summary>
+            Gets the FPGA time in seconds.
+            </summary>
+      <returns>The FPGA time in seconds</returns>
+    </member>
+    <member name="M:HAL_Simulator.SimHooks.GetTime">
+      <summary>
+            Gets the current number of 100 nanosecond ticks from the system.
+            </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.SimHooks.GetTime</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:HAL_Simulator.Inputs.EncodingType">
+      <summary>
+            Encoding Types for Counters and Encoders.
+            </summary>
+    </member>
+    <member name="F:HAL_Simulator.Inputs.EncodingType.K1X"></member>
+    <member name="F:HAL_Simulator.Inputs.EncodingType.K2X"></member>
+    <member name="F:HAL_Simulator.Inputs.EncodingType.K4X"></member>
+    <member name="T:HAL_Simulator.Inputs.SimAnalogInput">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.Inputs.SimAnalogInput</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.Inputs.SimAnalogInput.#ctor(System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>HAL_Simulator.Inputs.SimAnalogInput</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="pin">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>pin</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimAnalogInput.#ctor(System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.Inputs.SimAnalogInput.GetVoltage">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimAnalogInput.GetVoltage</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimAnalogInput.GetVoltage</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.Inputs.SimAnalogInput.Set(System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimAnalogInput.Set(System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimAnalogInput.Set(System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="T:HAL_Simulator.Inputs.SimCounter">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.Inputs.SimCounter</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.Inputs.SimCounter.#ctor(System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>HAL_Simulator.Inputs.SimCounter</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="pin">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>pin</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimCounter.#ctor(System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.Inputs.SimCounter.SetCount(System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimCounter.SetCount(System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimCounter.SetCount(System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.Inputs.SimCounter.SetPeriod(System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimCounter.SetPeriod(System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="period">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>period</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimCounter.SetPeriod(System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="T:HAL_Simulator.Inputs.SimDigitalInput">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.Inputs.SimDigitalInput</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.Inputs.SimDigitalInput.#ctor(System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>HAL_Simulator.Inputs.SimDigitalInput</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="pin">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>pin</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimDigitalInput.#ctor(System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="T:HAL_Simulator.Inputs.SimEncoder">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.Inputs.SimEncoder</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.Inputs.SimEncoder.#ctor(System.Int32,HAL_Simulator.Inputs.EncodingType)">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>HAL_Simulator.Inputs.SimEncoder</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="pin">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>pin</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimEncoder.#ctor(System.Int32,HAL_Simulator.Inputs.EncodingType)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="type">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>type</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimEncoder.#ctor(System.Int32,HAL_Simulator.Inputs.EncodingType)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.Inputs.SimEncoder.SetCount(System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimEncoder.SetCount(System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimEncoder.SetCount(System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.Inputs.SimEncoder.SetPeriod(System.Double)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimEncoder.SetPeriod(System.Double)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="period">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>period</parameter>
+            <parameter>M:HAL_Simulator.Inputs.SimEncoder.SetPeriod(System.Double)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="T:HAL_Simulator.Outputs.ISimSpeedController">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.Outputs.ISimSpeedController</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.Outputs.ISimSpeedController.Get">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.Outputs.ISimSpeedController.Get</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.Outputs.ISimSpeedController.Get</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:HAL_Simulator.Outputs.SimCANTalon">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.Outputs.SimCANTalon</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.Outputs.SimCANTalon.#ctor(System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>HAL_Simulator.Outputs.SimCANTalon</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="id">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>id</parameter>
+            <parameter>M:HAL_Simulator.Outputs.SimCANTalon.#ctor(System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="F:HAL_Simulator.Outputs.SimCANTalon.dictionary">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:HAL_Simulator.Outputs.SimCANTalon.dictionary</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.Outputs.SimCANTalon.Get">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.Outputs.SimCANTalon.Get</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.Outputs.SimCANTalon.Get</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:HAL_Simulator.Outputs.SimPWMController">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.Outputs.SimPWMController</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.Outputs.SimPWMController.#ctor(System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>HAL_Simulator.Outputs.SimPWMController</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="port">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>port</parameter>
+            <parameter>M:HAL_Simulator.Outputs.SimPWMController.#ctor(System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.Outputs.SimPWMController.Get">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.Outputs.SimPWMController.Get</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.Outputs.SimPWMController.Get</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:HAL_Simulator.Outputs.SimRelay">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:HAL_Simulator.Outputs.SimRelay</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:HAL_Simulator.Outputs.SimRelay.#ctor(System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>HAL_Simulator.Outputs.SimRelay</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="port">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>port</parameter>
+            <parameter>M:HAL_Simulator.Outputs.SimRelay.#ctor(System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:HAL_Simulator.Outputs.SimRelay.GetForward">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.Outputs.SimRelay.GetForward</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.Outputs.SimRelay.GetForward</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:HAL_Simulator.Outputs.SimRelay.GetReverse">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:HAL_Simulator.Outputs.SimRelay.GetReverse</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:HAL_Simulator.Outputs.SimRelay.GetReverse</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+  </members>
+</doc>

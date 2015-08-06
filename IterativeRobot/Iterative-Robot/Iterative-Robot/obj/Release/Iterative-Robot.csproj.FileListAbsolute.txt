@@ -1,0 +1,14 @@
+D:\Iterative-Robot\Iterative-Robot\bin\Release\libHALAthena_shared.so
+D:\Iterative-Robot\Iterative-Robot\bin\Release\Iterative-Robot.exe
+D:\Iterative-Robot\Iterative-Robot\bin\Release\Iterative-Robot.pdb
+D:\Iterative-Robot\Iterative-Robot\bin\Release\HAL-Base.dll
+D:\Iterative-Robot\Iterative-Robot\bin\Release\HAL-RoboRIO.dll
+D:\Iterative-Robot\Iterative-Robot\bin\Release\HAL-Simulation.dll
+D:\Iterative-Robot\Iterative-Robot\bin\Release\NetworkTables.dll
+D:\Iterative-Robot\Iterative-Robot\bin\Release\WPILib.dll
+D:\Iterative-Robot\Iterative-Robot\bin\Release\HAL-Simulation.xml
+D:\Iterative-Robot\Iterative-Robot\bin\Release\NetworkTables.xml
+D:\Iterative-Robot\Iterative-Robot\bin\Release\WPILib.xml
+D:\Iterative-Robot\Iterative-Robot\obj\Release\Iterative-Robot.csprojResolveAssemblyReference.cache
+D:\Iterative-Robot\Iterative-Robot\obj\Release\Iterative-Robot.exe
+D:\Iterative-Robot\Iterative-Robot\obj\Release\Iterative-Robot.pdb

@@ -26,3 +26,5 @@ C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterati
 C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Debug\NetworkTables.xml
 C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Debug\WPILib.xml
 C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\obj\Debug\Iterative-Robot.csprojResolveAssemblyReference.cache
+D:\Iterative-Robot\Iterative-Robot\obj\Debug\Iterative-Robot.exe
+D:\Iterative-Robot\Iterative-Robot\obj\Debug\Iterative-Robot.pdb

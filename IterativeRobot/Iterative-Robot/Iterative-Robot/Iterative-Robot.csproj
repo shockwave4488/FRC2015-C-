@@ -78,6 +78,7 @@
     <Compile Include="SubSystems\Elevator.cs" />
     <Compile Include="SubSystems\Joysticks.cs" />
     <Compile Include="SubSystems\ToteChute.cs" />
+    <Compile Include="Team Code\NavX.cs" />
     <Compile Include="Team Code\SWave_AnalogueUltrasonic.cs" />
     <Compile Include="Team Code\SWave_EdgeTrigger.cs" />
     <Compile Include="Team Code\SWave_Joystick.cs" />

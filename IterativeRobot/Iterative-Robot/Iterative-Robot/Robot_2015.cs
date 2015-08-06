@@ -62,6 +62,7 @@ namespace Iterative_Robot
          */
         public override void TeleopPeriodic()
         {
+            //Drive
             drive.DriveSpeeds = new point(joysticks.GetPrimaryAxis(PrimaryAxisControls.DriveX), joysticks.GetPrimaryAxis(PrimaryAxisControls.DriveY));
             drive.Rotation = joysticks.GetPrimaryAxis(PrimaryAxisControls.DriveRotate);
 
@@ -71,8 +72,24 @@ namespace Iterative_Robot
             drive.StrafeRightButton = joysticks.GetPrimaryButton(PrimaryButtonControls.StrafeRight);
 
             drive.FieldCentric = joysticks.GetPrimaryButton(PrimaryButtonControls.ToggleFieldCentric);
+
+            //Stacker
             if (joysticks.GetPrimaryButton(PrimaryButtonControls.ResetGyro))
                 drive.resetGyro();
+
+            if (joysticks.GetSecondaryButton(SecondaryButtonControls.AutoStack))
+                stacker.state = StackerState.AlignTote;
+            if (joysticks.GetSecondaryButton(SecondaryButtonControls.Reset))
+                stacker.Reset();
+
+            stacker.claw = joysticks.GetSecondaryButton(SecondaryButtonControls.ClawOpen);
+            stacker.ArmDown = joysticks.GetSecondaryButton(SecondaryButtonControls.ArmUp);
+            stacker.output = joysticks.GetPrimaryButton(PrimaryButtonControls.Output);
+
+            stacker.Update(null);
+            drive.update();
+
+            WPILib.SmartDashboards.SmartDashboard.PutString("Rotate Edge Trigger", drive.writeEdge());
         }
 
         /**

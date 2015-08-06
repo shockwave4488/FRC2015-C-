@@ -76,31 +76,12 @@ namespace Iterative_Robot.SubSystems
             string toReturn = Name + GetType();
 
             if (!AtPosition)
-                toReturn += "\n\tCurrently At " + pot.Get() + ", Going To " + PID.setpoint + " (" + printSetpointName() + ")";
+                toReturn += "\n\tCurrently At " + pot.Get() + ", Going To " + PID.setpoint + " (" + setpointName.ToString() + ")";
             else
-                toReturn += "\n\tCurrently At " + pot.Get() + " (" + printSetpointName() + ")";
+                toReturn += "\n\tCurrently At " + pot.Get() + " (" + setpointName.ToString() + ")";
 
             toReturn += "\n\t" + (Enabled ? "" : "Not ") + "Enabled";
             return toReturn;
-        }
-
-        private string printSetpointName()
-        {
-            switch (setpointName)
-            {
-                case ElevatorLocation.High:
-                    return "High";
-                case ElevatorLocation.First_Tote:
-                    return "Low";
-                case ElevatorLocation.Bottom:
-                    return "Bottom";
-                case ElevatorLocation.Pickup:
-                    return "Pickup";
-                case ElevatorLocation.Stabilize:
-                    return "Stabilize";
-                default:
-                    return "ERROR : INVALID ELEVATOR SETPOINT NAME";
-            }
         }
     }
 }

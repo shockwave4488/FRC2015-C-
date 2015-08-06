@@ -44,17 +44,12 @@ namespace Iterative_Robot.Team_Code
             string toReturn = Name + " " + GetType();
 
             if (!AtSetpoint)
-                toReturn += "\n\tCurrently At" + sensor.get() + ", Going To " + PID.setpoint + " (" + printSetpointName() + ")";
+                toReturn += "\n\tCurrently At" + sensor.get() + ", Going To " + PID.setpoint + " (" + setpointName_.ToString() + ")";
             else
-                toReturn += "\n\tCurrently At" + sensor.get() + ", Going To " + PID.setpoint + " (" + printSetpointName() + ")";
+                toReturn += "\n\tCurrently At" + sensor.get() + ", Going To " + PID.setpoint + " (" + setpointName_.ToString() + ")";
 
             toReturn += "\n\t" + (Enabled ? "" : "Not ") + "Enabled";
             return toReturn;
         }
-        
-        /// <summary>
-        /// should return string representation of the setpoint.
-        /// </summary>
-        protected abstract string printSetpointName();
     }
 }

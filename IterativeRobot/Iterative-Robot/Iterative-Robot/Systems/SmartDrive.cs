@@ -40,11 +40,12 @@ namespace Iterative_Robot.Systems
         private SWave_Toggle fieldCentricToggle;
 
         public point DriveSpeeds { get; set; }
-        public double TurnSetpoint { get; set; }
+        public double TurnSetpoint { get { return turnPID.setpoint; } set { turnPID.setpoint = value; } }
         public double Rotation { get; set; }
         public bool FieldCentric { get { return fieldCentricToggle.state; } set { fieldCentricToggle.state = value; } }
         public bool StrafeRightButton { get; set; }
         public bool StrafeForwardButton { get; set; }
+    
         public bool StrafeBackButton { get; set; }
         public bool StrafeLeftButton { get; set; }
 
@@ -57,7 +58,7 @@ namespace Iterative_Robot.Systems
             frontBack = new SWave_AnalogueUltrasonic(Constants.BackUltraChannel, Constants.UltraScaling);
             side = new SWave_AnalogueUltrasonic(Constants.SideUltraChannel, Constants.UltraScaling);
             gyro = new Gyro(Constants.GyroChannel);
-            rotateTrigger = new SWave_EdgeTrigger(false, true);
+            rotateTrigger = new SWave_EdgeTrigger(true, true);
             fieldCentricToggle = new SWave_Toggle();
 
             DriveSpeeds = new point(0, 0);
@@ -79,9 +80,13 @@ namespace Iterative_Robot.Systems
         public void update()
         {
             if (rotateTrigger.Get(Rotation == 0))
+            {
                 TurnSetpoint = gyro.GetAngle();
+                WPILib.SmartDashboards.SmartDashboard.PutNumber("Heading set at", gyro.GetAngle());
+                WPILib.SmartDashboards.SmartDashboard.PutString("ResetRotate", "Reset");
+            }
 
-            rotateTrigger.update(Rotation == 0);
+            rotateTrigger.Update(Rotation == 0);
 
             if (Rotation == 0)
                 Rotation = turnPID.get(gyro.GetAngle());
@@ -105,6 +110,11 @@ namespace Iterative_Robot.Systems
         public void resetGyro()
         {
             gyro.Reset();
+        }
+
+        public string writeEdge()
+        {
+            return rotateTrigger.Print() + "\n" + rotateTrigger.Get(Rotation == 0);
         }
     }
 }

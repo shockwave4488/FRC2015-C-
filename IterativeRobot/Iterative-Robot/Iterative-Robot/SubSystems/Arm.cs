@@ -78,27 +78,12 @@ namespace Iterative_Robot.SubSystems
             string toReturn = Name + GetType();
 
             if (!AtPosition)
-                toReturn += /*"\n\tCurrently At " + pot.Get() + */"\n, Going To " + PID.setpoint + " (" + printSetpointName() + ")";
-            else toReturn += /*"\n\tCurrently At " + pot.Get() + */"\n (" + printSetpointName() + ")";
+                toReturn += /*"\n\tCurrently At " + pot.Get() + */"\n, Going To " + PID.setpoint + " (" + setpoint_name.ToString() + ")";
+            else toReturn += /*"\n\tCurrently At " + pot.Get() + */"\n (" + setpoint_name.ToString() + ")";
 
             toReturn += "\n\t" + (Enabled ? "" : "Not ") + Enabled;
 
             return toReturn;
-        }
-
-        private string printSetpointName()
-        {
-            switch (setpoint_name)
-            {
-                case ArmLocation.Low:
-                    return "Low";
-                case ArmLocation.High:
-                    return "High";
-                case ArmLocation.Release:
-                    return "Release";
-                default:
-                    return "ERROR : INVALID ARM SETPOINT NAME";
-            }
         }
     }
 }
