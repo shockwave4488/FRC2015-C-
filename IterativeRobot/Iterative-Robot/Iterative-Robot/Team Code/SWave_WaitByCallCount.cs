@@ -18,6 +18,7 @@ namespace Iterative_Robot.Team_Code
         {
             threshold = count_;
             Name = "Anonymous";
+            Enabled = true;
         }
 
         public bool WaitComplete

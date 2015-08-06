@@ -52,6 +52,7 @@ namespace Iterative_Robot.SubSystems
             limit = new Team_Code.SWave_AccelLimit(0.1);
             PID = new Team_Code.SWave_PID(Constants.ArmP, 0, Constants.ArmD);
             Enabled = true;
+            loc = ArmLocation.High;
         }
 
         public void Update(double manual)
@@ -61,13 +62,15 @@ namespace Iterative_Robot.SubSystems
 
             if (!Enabled)
                 value = manual;
+            /*
             else if (pot.Get() > Constants.ArmLimitHigh)
                 value = Math.Min(0, value);
             else if (pot.Get() > Constants.ArmLimitLow)
                 value = Math.Max(0, value);
+                */
 
             ArmMotor.Set(Math.Max(-0.7, Math.Min(0.4, value)));
-            claw.Set(clawState ? DoubleSolenoid.Value.Forward : DoubleSolenoid.Value.Reverse);
+            claw.Set(clawState ? DoubleSolenoid.Value.Reverse : DoubleSolenoid.Value.Forward);
         }
 
         public string Print()
@@ -75,8 +78,8 @@ namespace Iterative_Robot.SubSystems
             string toReturn = Name + GetType();
 
             if (!AtPosition)
-                toReturn += "\n\tCurrently At " + pot.Get() + ", Going To " + PID.setpoint + " (" + printSetpointName() + ")";
-            else toReturn += "\n\tCurrently At " + pot.Get() + " (" + printSetpointName() + ")";
+                toReturn += /*"\n\tCurrently At " + pot.Get() + */"\n, Going To " + PID.setpoint + " (" + printSetpointName() + ")";
+            else toReturn += /*"\n\tCurrently At " + pot.Get() + */"\n (" + printSetpointName() + ")";
 
             toReturn += "\n\t" + (Enabled ? "" : "Not ") + Enabled;
 

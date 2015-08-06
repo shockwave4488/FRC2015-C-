@@ -39,6 +39,9 @@ namespace Iterative_Robot
         public static int HallEffectChannel = 9;
 
         //Analogue Sensor Channels
+        public static int GyroChannel = 0;
+        public static int BackUltraChannel = 1;
+        public static int SideUltraChannel = 2;
         public static int LiftPotChannel = 4;
         public static int ArmPotChannel = 5;
 
@@ -84,7 +87,22 @@ namespace Iterative_Robot
         public static XboxAxes Secondary_ManualElevator = XboxAxes.Right_Y;
 
         //Misc Variables
+
+        public static double UltraScaling = 0.0049;
+
+        //Drive Variables
         public static double DriveAccelLimit = 0.2;
+        public static double DriveTurnP = 0.02;
+        public static double DriveTurnD = 0;
+        public static double DriveAlignBackP = 0.02;
+        public static double DriveAlignBackD = 0;
+        public static double DriveAlignBackSetLoad = 83;
+        public static double DriveAlignBackSetNoodle = 40;
+        public static double DriveAlignSideP = 0.02;
+        public static double DriveAlignSideD = 0;
+        public static double DriveAlignSideSetpoint = 46;
+        public static double DriveStrafeButtonSpeed = 0.75;
+        public static double DriveForwardButtonSpeed = 0.5;
 
         //Conveyor Variables
         public static double Conveyor_OutputSpeed = 0.5;
@@ -117,8 +135,8 @@ namespace Iterative_Robot
         public static double LiftPosnTolerance = 0.04;
 
         //Arm Setpoints
-        private static double ArmLowLoc = 0.643;
-        private static double ArmHighLoc = 0.272;
+        private static double ArmLowLoc = 0.623;
+        private static double ArmHighLoc = 0.257;
         private static double ArmReleaseLoc = 0.18;
 
         public static Dictionary<SubSystems.ArmLocation, double> ArmLocations = new Dictionary<SubSystems.ArmLocation, double>();

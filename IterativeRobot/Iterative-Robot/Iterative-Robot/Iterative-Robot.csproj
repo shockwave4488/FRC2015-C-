@@ -67,7 +67,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="State Machines\Stacker.cs" />
+    <Compile Include="Systems\SmartDrive.cs" />
+    <Compile Include="Systems\Stacker.cs" />
     <Compile Include="SubSystems\Arm.cs" />
     <Compile Include="SubSystems\CanBurglar.cs" />
     <Compile Include="SubSystems\Drive.cs" />
@@ -77,6 +78,8 @@
     <Compile Include="SubSystems\Elevator.cs" />
     <Compile Include="SubSystems\Joysticks.cs" />
     <Compile Include="SubSystems\ToteChute.cs" />
+    <Compile Include="Team Code\SWave_AnalogueUltrasonic.cs" />
+    <Compile Include="Team Code\SWave_EdgeTrigger.cs" />
     <Compile Include="Team Code\SWave_Joystick.cs" />
     <Compile Include="Team Code\SWave_Encoder.cs" />
     <Compile Include="Team Code\SWave_IPositionSensor.cs" />
