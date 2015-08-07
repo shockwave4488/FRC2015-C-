@@ -22,7 +22,6 @@ namespace Iterative_Robot.SubSystems
         private Team_Code.SWave_PID PID;
         private Team_Code.SWave_AccelLimit limit;
         private ElevatorLocation setpointName;
-
         public string Name { get { return ""; } set { } }
         public bool pause { get; set; }
         public bool Enabled { get; set; }
@@ -50,7 +49,7 @@ namespace Iterative_Robot.SubSystems
         {
             pot = new AnalogPotentiometer(new AnalogInput(Constants.ChannelAnalogue_LiftPot));
             ElevatorMotor = new Talon(Constants.ChannelPWM_Lift);
-            PID = new Team_Code.SWave_PID(Constants.Lift_P, 0, Constants.Lift_D);
+            PID = new Team_Code.SWave_PID(Constants.Lift_P, 0, Constants.Lift_D, -0.7, 1);
             pause = false; Enabled = true;
             limit = new Team_Code.SWave_AccelLimit(0.15, true, false);
             loc = ElevatorLocation.Bottom;

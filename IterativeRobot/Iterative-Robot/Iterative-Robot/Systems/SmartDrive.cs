@@ -8,7 +8,7 @@ using Iterative_Robot.Team_Code;
 
 namespace Iterative_Robot.Systems
 {
-    struct point
+    public struct point
     {
         public double x, y;
 
@@ -27,7 +27,7 @@ namespace Iterative_Robot.Systems
         }
     }
 
-    class SmartDrive
+    public class SmartDrive
     {
         private Drive drive;
         private SWave_PID turnPID;
@@ -43,17 +43,22 @@ namespace Iterative_Robot.Systems
         public double TurnSetpoint { get { return turnPID.setpoint; } set { turnPID.setpoint = value; } }
         public double Rotation { get; set; }
         public bool FieldCentric { get { return fieldCentricToggle.state; } set { fieldCentricToggle.state = value; } }
+
+        public bool AlignLoad { get; set; }
+        public bool AlignNoodle { get; set; }
+        public bool AlignOutput { get; set; }
+        public bool AlignGetContainer { get; set; }
+
         public bool StrafeRightButton { get; set; }
         public bool StrafeForwardButton { get; set; }
-    
         public bool StrafeBackButton { get; set; }
         public bool StrafeLeftButton { get; set; }
 
         public SmartDrive()
         {
-            turnPID = new SWave_PID(Constants.Drive_TurnP, 0, Constants.Drive_TurnD);
-            frontBackPID = new SWave_PID(Constants.Drive_AlignBackP, 0, Constants.Drive_AlignBackD);
-            sidePID = new SWave_PID(Constants.Drive_AlignSideP, 0, Constants.Drive_AlignSideD);
+            turnPID = new SWave_PID(Constants.Drive_TurnP, 0, Constants.Drive_TurnD, -0.5, 0.5);
+            frontBackPID = new SWave_PID(Constants.Drive_AlignBackP, 0, Constants.Drive_AlignBackD, -0.25, 0.25);
+            sidePID = new SWave_PID(Constants.Drive_AlignSideP, 0, Constants.Drive_AlignSideD, -0.5, 0.5);
             drive = new Drive();
             frontBack = new SWave_AnalogueUltrasonic(Constants.ChannelAnalogue_BackUltrasonic, Constants.UltraScaling);
             side = new SWave_AnalogueUltrasonic(Constants.ChannelAnalogue_SideUltrasonic, Constants.UltraScaling);
@@ -64,6 +69,7 @@ namespace Iterative_Robot.Systems
             DriveSpeeds = new point(0, 0);
             TurnSetpoint = 0; Rotation = 0;
             FieldCentric = true; StrafeBackButton = false; StrafeLeftButton = false; StrafeForwardButton = false; StrafeRightButton = false;
+            AlignNoodle = false; AlignLoad = false; AlignOutput = false;
         }
 
         private point fieldCentricAdj()
@@ -71,6 +77,8 @@ namespace Iterative_Robot.Systems
             point toReturn;
             double angleRad = gyro.GetAngle() * Math.PI / 180.0;
 
+            Console.WriteLine(DriveSpeeds.x);
+            
             toReturn.x = (DriveSpeeds.x * Math.Cos(angleRad)) - (DriveSpeeds.y * Math.Sin(angleRad));
             toReturn.y = (DriveSpeeds.y * Math.Cos(angleRad)) + (DriveSpeeds.x * Math.Sin(angleRad));
 
@@ -88,7 +96,27 @@ namespace Iterative_Robot.Systems
 
             rotateTrigger.Update(Rotation == 0);
 
-            if (Rotation == 0)
+            if (AlignNoodle)
+            {
+                TurnSetpoint = Constants.Drive_AlignLoadAngle;
+                frontBackPID.setpoint = Constants.Drive_AlignBackSetNoodle;
+                DriveSpeeds = new point(0, frontBackPID.get(frontBack.get()));
+            }
+            else if (AlignOutput)
+            {
+                TurnSetpoint = 0;
+                frontBackPID.setpoint = Constants.Drive_AlignBackSetOutput;
+                DriveSpeeds = new point(0, frontBackPID.get(frontBack.get()));
+            }
+            else if (AlignLoad)
+            {
+                TurnSetpoint = Constants.Drive_AlignLoadAngle;
+                frontBackPID.setpoint = Constants.Drive_AlignBackSetLoad;
+                sidePID.setpoint = Constants.Drive_AlignSideSetpoint;
+                DriveSpeeds = new point(sidePID.get(side.get()), frontBackPID.get(frontBack.get()));
+            }
+
+            if (Rotation == 0 || AlignOutput || AlignNoodle || AlignLoad)
                 Rotation = turnPID.get(gyro.GetAngle());
 
             if (StrafeRightButton)
@@ -104,17 +132,26 @@ namespace Iterative_Robot.Systems
             drive.X = FieldCentric ? fieldCentricAdj().x : DriveSpeeds.x;
             drive.Y = FieldCentric ? fieldCentricAdj().y : DriveSpeeds.y;
             drive.Update(null);
+
             turnPID.Update(gyro.GetAngle());
+            sidePID.Update(side.get());
+            frontBackPID.Update(frontBack.get());
         }
 
         public void resetGyro()
         {
             gyro.Reset();
+            TurnSetpoint = 0;
         }
 
         public string writeEdge()
         {
             return rotateTrigger.Print() + "\n" + rotateTrigger.Get(Rotation == 0);
+        }
+
+        public string writeGyro()
+        {
+            return gyro.GetAngle().ToString();
         }
     }
 }

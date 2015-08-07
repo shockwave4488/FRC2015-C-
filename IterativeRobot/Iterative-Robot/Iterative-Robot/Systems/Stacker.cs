@@ -10,12 +10,15 @@ namespace Iterative_Robot.Systems
 {
     public enum StackerState { Nothing, Wait, LiftDown, LiftUp, AlignTote, Paused }
 
+    /// <summary>
+    /// Encapsulates everything but the drive train and can grabber, manages stacking and can pickup.
+    /// </summary>
     public class Stacker : Team_Code.SWave_IStandard<object>
     {
         private Team_Code.SWave_WaitByCallCount alignWait;
         private Team_Code.SWave_WaitByCallCount liftUpWait;
         private Team_Code.SWave_WaitByCallCount ReleaseWait;
-        private Team_Code.SWave_Toggle grabbingCan;
+        public Team_Code.SWave_Toggle grabbingCan;
         private Elevator elevator;
         private Arm arm;
         private ToteChute toteChute;
@@ -39,6 +42,8 @@ namespace Iterative_Robot.Systems
             }
         }
 
+        private Notifier notifier;
+
         public Stacker()
         {
             elevator = new Elevator(); toteChute = new ToteChute(); arm = new Arm();
@@ -48,6 +53,17 @@ namespace Iterative_Robot.Systems
             grabbingCan = new Team_Code.SWave_Toggle();
             state = StackerState.Nothing;
             ArmDown = false; output = false; claw = true; toteCount = 0;
+
+
+            notifier = new Notifier(() =>
+            {
+                Update(null);
+            });
+        }
+
+        public void Start()
+        {
+            notifier.StartPeriodic(0.01);
         }
 
         public void Update(object UNUSED)
@@ -113,6 +129,7 @@ namespace Iterative_Robot.Systems
                         ReleaseWait.Update(toteCount == 2);
                         alignWait.Update(toteChute.getState() == conveyorState.Done);
                         toteChute.Stopper = true;
+                        toteChute.RampIn = false;
                         break;
 
                     case StackerState.Paused:

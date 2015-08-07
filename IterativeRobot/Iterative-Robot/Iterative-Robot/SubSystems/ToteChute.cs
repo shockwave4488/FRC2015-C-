@@ -50,7 +50,7 @@ namespace Iterative_Robot.SubSystems
                 conveyor.Set(0);
 
             stop.Set(Stopper ? DoubleSolenoid.Value.Reverse : DoubleSolenoid.Value.Forward);
-            ramp.Set(RampIn ? DoubleSolenoid.Value.Reverse : DoubleSolenoid.Value.Forward);
+            ramp.Set(RampIn ? DoubleSolenoid.Value.Forward : DoubleSolenoid.Value.Reverse);
         }
 
         public conveyorState getState()

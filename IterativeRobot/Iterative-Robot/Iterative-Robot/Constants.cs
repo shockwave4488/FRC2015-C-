@@ -97,11 +97,14 @@ namespace Iterative_Robot
         public const double Drive_AlignBackD = 0;
         public const double Drive_AlignBackSetLoad = 83;
         public const double Drive_AlignBackSetNoodle = 40;
+        public const double Drive_AlignBackSetOutput = 80;
+        public const double Drive_AlignBackSetGetCan = 40;
         public const double Drive_AlignSideP = 0.02;
         public const double Drive_AlignSideD = 0;
         public const double Drive_AlignSideSetpoint = 46;
         public const double Drive_StrafeButtonSpeed = 0.75;
         public const double Drive_ForwardButtonSpeed = 0.5;
+        public const double Drive_AlignLoadAngle = 53;
 
         //Conveyor Variables
         public const double Conveyor_OutputSpeed = 0.5;

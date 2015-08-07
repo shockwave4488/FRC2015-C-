@@ -4,6 +4,7 @@ using System.Linq;
 using WPILib;
 using Iterative_Robot.SubSystems;
 using Iterative_Robot.Systems;
+using Iterative_Robot.Team_Code;
 
 namespace Iterative_Robot
 {
@@ -14,11 +15,15 @@ namespace Iterative_Robot
      */
     public class Robot2015 : IterativeRobot
     {
-        Joysticks joysticks;
+        private Joysticks joysticks;
         //Drive mecDrive; 
-        Compressor compressor;
-        SmartDrive drive;
-        Stacker stacker;
+        private Compressor compressor;
+        private SmartDrive drive;
+        private Stacker stacker;
+        private CanBurglar canburglar;
+
+        private SWave_WaitByCallCount AutonDriveWait;
+        private bool grabbed_once;
 
         //Elevator elevator;
         //ToteChute toteChute;
@@ -32,21 +37,24 @@ namespace Iterative_Robot
         {
             Constants.initArmLocations();
             Constants.initLiftLocations();
+            AutonDriveWait = new SWave_WaitByCallCount(75);
 
             joysticks = new Joysticks();
             drive = new SmartDrive();
 
             stacker = new Stacker();
 
-            /*
-            elevator = new Elevator();
-            toteChute = new ToteChute();
-            arm = new Arm();
-            */
+            canburglar = new CanBurglar();
 
             compressor = new Compressor();
 
             compressor.Start();
+        }
+
+
+        public override void DisabledPeriodic()
+        {
+            WPILib.SmartDashboards.SmartDashboard.PutString("Gyro Value", drive.writeGyro());
         }
 
         /**
@@ -54,7 +62,20 @@ namespace Iterative_Robot
          */
         public override void AutonomousPeriodic()
         {
-            
+            canburglar.grab = true;
+            AutonDriveWait.Update(true);
+
+            grabbed_once = canburglar.grabbed || grabbed_once;
+
+            if(AutonDriveWait.WaitComplete || grabbed_once)
+                drive.DriveSpeeds = new point(0, 1);
+            else
+                drive.DriveSpeeds = new point(0, 0);
+        }
+
+        public override void TeleopInit()
+        {
+            stacker.Start();
         }
 
         /**
@@ -86,7 +107,7 @@ namespace Iterative_Robot
             stacker.ArmDown = joysticks.GetSecondaryButton(SecondaryButtonControls.ArmUp);
             stacker.output = joysticks.GetPrimaryButton(PrimaryButtonControls.Output);
 
-            stacker.Update(null);
+            //stacker.Update(null);
             drive.update();
 
             WPILib.SmartDashboards.SmartDashboard.PutString("Rotate Edge Trigger", drive.writeEdge());

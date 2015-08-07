@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Systems\AutomatedRobot.cs" />
     <Compile Include="Systems\SmartDrive.cs" />
     <Compile Include="Systems\Stacker.cs" />
     <Compile Include="SubSystems\Arm.cs" />

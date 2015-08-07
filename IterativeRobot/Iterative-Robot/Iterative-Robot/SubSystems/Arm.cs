@@ -50,7 +50,7 @@ namespace Iterative_Robot.SubSystems
             claw = new DoubleSolenoid(Constants.ChannelSolenoid_ClawF, Constants.ChannelSolenoid_ClawR);
             pot = new AnalogPotentiometer(new AnalogInput(Constants.ChannelAnalogue_ArmPot));
             limit = new Team_Code.SWave_AccelLimit(0.1);
-            PID = new Team_Code.SWave_PID(Constants.Arm_P, 0, Constants.Arm_D);
+            PID  = new Team_Code.SWave_PID(Constants.Arm_P, 0, Constants.Arm_D, -0.7, 0.4);
             Enabled = true;
             loc = ArmLocation.High;
         }
@@ -69,7 +69,7 @@ namespace Iterative_Robot.SubSystems
                 value = Math.Max(0, value);
                 */
 
-            ArmMotor.Set(Math.Max(-0.7, Math.Min(0.4, value)));
+            ArmMotor.Set(value);
             claw.Set(clawState ? DoubleSolenoid.Value.Reverse : DoubleSolenoid.Value.Forward);
         }
 

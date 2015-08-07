@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HAL_Base;
 
 namespace Iterative_Robot.Team_Code
 {
     /// <summary>
     /// Toggle Latch
     /// </summary>
-    class SWave_Toggle
+    public class SWave_Toggle
     {
         private bool _state;
         private bool feedback;
@@ -29,6 +30,16 @@ namespace Iterative_Robot.Team_Code
 
                 feedback = value;
             }
+        }
+
+        public void ForceTrue()
+        {
+            _state = true;
+        }
+
+        public void ForceFalse()
+        {
+            _state = false;
         }
     }
 }

@@ -48,10 +48,10 @@ namespace Iterative_Robot
             limitX.Update(X); limitY.Update(Y); limitR.Update(Rotation);
 
             double[] toReturn = new double[4];
-            toReturn[0] = limitY.Get() - limitX.Get() - limitR.Get(); //LF
-            toReturn[1] = limitY.Get() + limitX.Get() + limitR.Get(); //RF
-            toReturn[2] = limitY.Get() + limitX.Get() - limitR.Get(); //LR
-            toReturn[3] = limitY.Get() - limitX.Get() + limitR.Get(); //RR
+            toReturn[0] = limitY.Get() + limitX.Get() + limitR.Get(); //LF
+            toReturn[1] = limitY.Get() - limitX.Get() - limitR.Get(); //RF
+            toReturn[2] = limitY.Get() - limitX.Get() + limitR.Get(); //LR
+            toReturn[3] = limitY.Get() + limitX.Get() - limitR.Get(); //RR
 
             //normalize values
             double max = toReturn.Max();

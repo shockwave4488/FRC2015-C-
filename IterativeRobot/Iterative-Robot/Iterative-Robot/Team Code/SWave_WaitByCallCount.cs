@@ -9,8 +9,7 @@ namespace Iterative_Robot.Team_Code
     public class SWave_WaitByCallCount : SWave_IStandard<bool>
     {
         private int count;
-        private int threshold;
-
+        public int threshold { get; set; }
         public bool Enabled { get; set; }
         public string Name { get; set; }
 
