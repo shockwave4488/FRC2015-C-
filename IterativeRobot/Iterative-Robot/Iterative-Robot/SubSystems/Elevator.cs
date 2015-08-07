@@ -31,8 +31,8 @@ namespace Iterative_Robot.SubSystems
         {
             get
             {
-                return (pot.Get() < PID.setpoint + Constants.LiftPosnTolerance) &&
-                    (pot.Get() > PID.setpoint - Constants.LiftPosnTolerance);
+                return (pot.Get() < PID.setpoint + Constants.Lift_PosnTolerance) &&
+                    (pot.Get() > PID.setpoint - Constants.Lift_PosnTolerance);
             }
         }
         public ElevatorLocation loc
@@ -41,16 +41,16 @@ namespace Iterative_Robot.SubSystems
             set
             {
                 if (!pause)
-                    PID.setpoint = Constants.LiftLocations[value];
+                    PID.setpoint = Constants.Lift_Locations[value];
                 setpointName = value;
             }
         }
 
         public Elevator()
         {
-            pot = new AnalogPotentiometer(new AnalogInput(Constants.LiftPotChannel));
-            ElevatorMotor = new Talon(Constants.LiftPort);
-            PID = new Team_Code.SWave_PID(Constants.LiftP, 0, Constants.LiftD);
+            pot = new AnalogPotentiometer(new AnalogInput(Constants.ChannelAnalogue_LiftPot));
+            ElevatorMotor = new Talon(Constants.ChannelPWM_Lift);
+            PID = new Team_Code.SWave_PID(Constants.Lift_P, 0, Constants.Lift_D);
             pause = false; Enabled = true;
             limit = new Team_Code.SWave_AccelLimit(0.15, true, false);
             loc = ElevatorLocation.Bottom;
@@ -63,9 +63,9 @@ namespace Iterative_Robot.SubSystems
 
             if (!Enabled)
                 value = manual;
-            else if (pot.Get() > Constants.LiftLimitHigh)
+            else if (pot.Get() > Constants.Lift_LimitHigh)
                 value = Math.Min(0, value);
-            else if (pot.Get() < Constants.LiftLimitLow)
+            else if (pot.Get() < Constants.Lift_LimitLow)
                 value = Math.Max(0, value);
 
             ElevatorMotor.Set(-value);

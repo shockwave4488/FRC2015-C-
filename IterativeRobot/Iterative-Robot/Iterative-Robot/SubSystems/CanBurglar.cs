@@ -23,8 +23,8 @@ namespace Iterative_Robot.SubSystems
 
         public CanBurglar()
         {
-            grabber = new DoubleSolenoid(Constants.Can_Burglar_Forward, Constants.Can_Burglar_Reverse);
-            HallEffect = new DigitalInput(Constants.HallEffectChannel);
+            grabber = new DoubleSolenoid(Constants.ChannelSolenoid_CanBurglarF, Constants.ChannelSolenoid_CanBurglarR);
+            HallEffect = new DigitalInput(Constants.ChannelDIO_HallEffect);
             Enabled = true;
         }
 

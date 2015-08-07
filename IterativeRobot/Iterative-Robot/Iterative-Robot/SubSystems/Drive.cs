@@ -25,16 +25,16 @@ namespace Iterative_Robot
 
         public Drive()
         {
-            LF = new Talon(Constants.DriveLFPort);
-            RF = new Talon(Constants.DriveRFPort);
-            LR = new Talon(Constants.DriveLRPort);
-            RR = new Talon(Constants.DriveRRPort);
+            LF = new Talon(Constants.ChannelPWM_DriveLF);
+            RF = new Talon(Constants.ChannelPWM_DriveRF);
+            LR = new Talon(Constants.ChannelPWM_DriveLR);
+            RR = new Talon(Constants.ChannelPWM_DriveRR);
 
             X = 0; Y = 0;
 
-            limitX = new Team_Code.SWave_AccelLimit(Constants.DriveAccelLimit);
-            limitY = new Team_Code.SWave_AccelLimit(Constants.DriveAccelLimit);
-            limitR = new Team_Code.SWave_AccelLimit(Constants.DriveAccelLimit);
+            limitX = new Team_Code.SWave_AccelLimit(Constants.Drive_AccelLimit);
+            limitY = new Team_Code.SWave_AccelLimit(Constants.Drive_AccelLimit);
+            limitR = new Team_Code.SWave_AccelLimit(Constants.Drive_AccelLimit);
 
             LF.Inverted = true; LR.Inverted = true;
 

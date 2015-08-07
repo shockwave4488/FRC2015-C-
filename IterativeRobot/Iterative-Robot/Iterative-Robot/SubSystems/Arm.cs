@@ -31,7 +31,7 @@ namespace Iterative_Robot.SubSystems
         {
             get
             {
-                return (pot.Get() < PID.setpoint + Constants.ArmPosnTolerance) && (pot.Get() > PID.setpoint - Constants.ArmPosnTolerance);
+                return (pot.Get() < PID.setpoint + Constants.Arm_PosnTolerance) && (pot.Get() > PID.setpoint - Constants.Arm_PosnTolerance);
             }
         }
         public ArmLocation loc
@@ -46,11 +46,11 @@ namespace Iterative_Robot.SubSystems
 
         public Arm()
         {
-            ArmMotor = new Talon(Constants.ArmPort);
-            claw = new DoubleSolenoid(Constants.ClawChannel_Forward, Constants.ClawChannel_Reverse);
-            pot = new AnalogPotentiometer(new AnalogInput(Constants.ArmPotChannel));
+            ArmMotor = new Talon(Constants.ChannelPWM_Arm);
+            claw = new DoubleSolenoid(Constants.ChannelSolenoid_ClawF, Constants.ChannelSolenoid_ClawR);
+            pot = new AnalogPotentiometer(new AnalogInput(Constants.ChannelAnalogue_ArmPot));
             limit = new Team_Code.SWave_AccelLimit(0.1);
-            PID = new Team_Code.SWave_PID(Constants.ArmP, 0, Constants.ArmD);
+            PID = new Team_Code.SWave_PID(Constants.Arm_P, 0, Constants.Arm_D);
             Enabled = true;
             loc = ArmLocation.High;
         }

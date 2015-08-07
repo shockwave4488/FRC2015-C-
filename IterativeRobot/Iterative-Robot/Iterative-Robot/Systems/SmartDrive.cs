@@ -51,13 +51,13 @@ namespace Iterative_Robot.Systems
 
         public SmartDrive()
         {
-            turnPID = new SWave_PID(Constants.DriveTurnP, 0, Constants.DriveTurnD);
-            frontBackPID = new SWave_PID(Constants.DriveAlignBackP, 0, Constants.DriveAlignBackD);
-            sidePID = new SWave_PID(Constants.DriveAlignSideP, 0, Constants.DriveAlignSideD);
+            turnPID = new SWave_PID(Constants.Drive_TurnP, 0, Constants.Drive_TurnD);
+            frontBackPID = new SWave_PID(Constants.Drive_AlignBackP, 0, Constants.Drive_AlignBackD);
+            sidePID = new SWave_PID(Constants.Drive_AlignSideP, 0, Constants.Drive_AlignSideD);
             drive = new Drive();
-            frontBack = new SWave_AnalogueUltrasonic(Constants.BackUltraChannel, Constants.UltraScaling);
-            side = new SWave_AnalogueUltrasonic(Constants.SideUltraChannel, Constants.UltraScaling);
-            gyro = new Gyro(Constants.GyroChannel);
+            frontBack = new SWave_AnalogueUltrasonic(Constants.ChannelAnalogue_BackUltrasonic, Constants.UltraScaling);
+            side = new SWave_AnalogueUltrasonic(Constants.ChannelAnalogue_SideUltrasonic, Constants.UltraScaling);
+            gyro = new Gyro(Constants.ChannelAnalogue_Gyro);
             rotateTrigger = new SWave_EdgeTrigger(true, true);
             fieldCentricToggle = new SWave_Toggle();
 
@@ -92,13 +92,13 @@ namespace Iterative_Robot.Systems
                 Rotation = turnPID.get(gyro.GetAngle());
 
             if (StrafeRightButton)
-                DriveSpeeds = new point(Constants.DriveStrafeButtonSpeed, 0);
+                DriveSpeeds = new point(Constants.Drive_StrafeButtonSpeed, 0);
             else if (StrafeLeftButton)
-                DriveSpeeds = new point(-Constants.DriveStrafeButtonSpeed, 0);
+                DriveSpeeds = new point(-Constants.Drive_StrafeButtonSpeed, 0);
             else if (StrafeForwardButton)
-                DriveSpeeds = new point(0, Constants.DriveForwardButtonSpeed);
+                DriveSpeeds = new point(0, Constants.Drive_ForwardButtonSpeed);
             else if (StrafeBackButton)
-                DriveSpeeds = new point(0, -Constants.DriveForwardButtonSpeed);
+                DriveSpeeds = new point(0, -Constants.Drive_ForwardButtonSpeed);
 
             drive.Rotation = Rotation;
             drive.X = FieldCentric ? fieldCentricAdj().x : DriveSpeeds.x;

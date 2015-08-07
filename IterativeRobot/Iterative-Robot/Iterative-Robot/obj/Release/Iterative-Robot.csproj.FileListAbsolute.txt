@@ -12,3 +12,17 @@ D:\Iterative-Robot\Iterative-Robot\bin\Release\WPILib.xml
 D:\Iterative-Robot\Iterative-Robot\obj\Release\Iterative-Robot.csprojResolveAssemblyReference.cache
 D:\Iterative-Robot\Iterative-Robot\obj\Release\Iterative-Robot.exe
 D:\Iterative-Robot\Iterative-Robot\obj\Release\Iterative-Robot.pdb
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\obj\Release\Iterative-Robot.exe
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\obj\Release\Iterative-Robot.pdb
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Release\libHALAthena_shared.so
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Release\Iterative-Robot.exe
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Release\Iterative-Robot.pdb
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Release\HAL-Base.dll
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Release\HAL-RoboRIO.dll
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Release\HAL-Simulation.dll
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Release\NetworkTables.dll
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Release\WPILib.dll
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Release\HAL-Simulation.xml
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Release\NetworkTables.xml
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\bin\Release\WPILib.xml
+C:\Users\Nick\Documents\GitHub\FRC2015-C-\IterativeRobot\Iterative-Robot\Iterative-Robot\obj\Release\Iterative-Robot.csprojResolveAssemblyReference.cache

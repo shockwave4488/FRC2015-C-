@@ -30,11 +30,11 @@ namespace Iterative_Robot.SubSystems
 
         public ToteChute()
         {
-            ramp = new DoubleSolenoid(Constants.RampChannel_Forward, Constants.RampChannel_Reverse);
-            stop = new DoubleSolenoid(Constants.StopChannel_Forward, Constants.StopChannel_Reverse);
-            conveyor = new Talon(Constants.ConveyorPort);
-            backBeam = new DigitalInput(Constants.BeamBackChannel);
-            frontBeam = new DigitalInput(Constants.BeamFrontChannel);
+            ramp = new DoubleSolenoid(Constants.ChannelSolenoid_RampF, Constants.ChannelSolenoid_RampR);
+            stop = new DoubleSolenoid(Constants.ChannelSolenoid_StopF, Constants.ChannelSolenoid_StopR);
+            conveyor = new Talon(Constants.ChannelPWM_Output);
+            backBeam = new DigitalInput(Constants.ChannelDIO_BeamBack);
+            frontBeam = new DigitalInput(Constants.ChannelDIO_BeamFront);
             Name = ""; Enabled = true;
         }
 

@@ -45,9 +45,9 @@ namespace Iterative_Robot.SubSystems
         
         public Joysticks()
         {
-            Primary_Left = new SWave_Joystick(Constants.Primary_Left_Port);
-            Primary_Right = new SWave_Joystick(Constants.Primary_Right_Port);
-            Secondary = new SWave_Xbox(Constants.Secondary_Port);
+            Primary_Left = new SWave_Joystick(Constants.ChannelUSB_PrimaryLeft);
+            Primary_Right = new SWave_Joystick(Constants.ChannelUSB_PrimaryRight);
+            Secondary = new SWave_Xbox(Constants.ChannelUSB_Secondary);
         }
 
         public bool GetPrimaryButton(PrimaryButtonControls action)

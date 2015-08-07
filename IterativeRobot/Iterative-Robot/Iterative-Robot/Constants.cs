@@ -9,135 +9,134 @@ using Iterative_Robot.Team_Code;
 namespace Iterative_Robot
 {
     /// <summary>
-    /// Static class defines all global constants for this program.
+    /// const class defines all global constants for this program.
     /// PWM/DIO/SOlenoid Channels, Setpoints, Button Mappings, Etc.
     /// </summary>
     static class Constants
     {
         //PWM Channels
-        public static int DriveLFPort = 0;
-        public static int DriveLRPort = 1;
-        public static int DriveRFPort = 3;
-        public static int DriveRRPort = 2;
-        public static int LiftPort = 7;
-        public static int ArmPort = 5;
-        public static int ConveyorPort = 4;
+        public const int ChannelPWM_DriveLF = 0;
+        public const int ChannelPWM_DriveLR = 1;
+        public const int ChannelPWM_DriveRF = 3;
+        public const int ChannelPWM_DriveRR = 2;
+        public const int ChannelPWM_Lift = 7;
+        public const int ChannelPWM_Arm = 5;
+        public const int ChannelPWM_Output = 4;
 
         //Solenoid Channels
-        public static int ClawChannel_Forward = 0;
-        public static int ClawChannel_Reverse = 1;
-        public static int RampChannel_Forward = 2;
-        public static int RampChannel_Reverse = 3;
-        public static int Can_Burglar_Forward = 4;
-        public static int Can_Burglar_Reverse = 5;
-        public static int StopChannel_Forward = 6;
-        public static int StopChannel_Reverse = 7;
+        public const int ChannelSolenoid_ClawF = 0;
+        public const int ChannelSolenoid_ClawR = 1;
+        public const int ChannelSolenoid_RampF = 2;
+        public const int ChannelSolenoid_RampR = 3;
+        public const int ChannelSolenoid_CanBurglarF = 4;
+        public const int ChannelSolenoid_CanBurglarR = 5;
+        public const int ChannelSolenoid_StopF = 6;
+        public const int ChannelSolenoid_StopR = 7;
 
         //Digital IO Channels
-        public static int BeamBackChannel = 23;
-        public static int BeamFrontChannel = 22;
-        public static int HallEffectChannel = 9;
+        public const int ChannelDIO_BeamBack = 23;
+        public const int ChannelDIO_BeamFront = 22;
+        public const int ChannelDIO_HallEffect = 9;
 
         //Analogue Sensor Channels
-        public static int GyroChannel = 0;
-        public static int BackUltraChannel = 1;
-        public static int SideUltraChannel = 2;
-        public static int LiftPotChannel = 4;
-        public static int ArmPotChannel = 5;
+        public const int ChannelAnalogue_Gyro = 0;
+        public const int ChannelAnalogue_BackUltrasonic = 1;
+        public const int ChannelAnalogue_SideUltrasonic = 2;
+        public const int ChannelAnalogue_LiftPot = 4;
+        public const int ChannelAnalogue_ArmPot = 5;
 
         //Joystick Channels
-        public static int Primary_Left_Port = 0;
-        public static int Primary_Right_Port = 1;
-        public static int Secondary_Port = 2;
+        public const int ChannelUSB_PrimaryLeft = 0;
+        public const int ChannelUSB_PrimaryRight = 1;
+        public const int ChannelUSB_Secondary = 2;
 
         //Primary Driver Left Button Controls
-        public static JoystickButtons Primary_Left_DriveReduction = JoystickButtons.Trigger;
-        public static JoystickButtons Primary_Left_Output = JoystickButtons.Button2;
-        public static JoystickButtons Primary_Left_AlignCenter = JoystickButtons.Button3;
-        public static JoystickButtons Primary_Left_AlignLeft = JoystickButtons.Button4;
-        public static JoystickButtons Primary_Left_AlignRight = JoystickButtons.Button5;
-        public static JoystickButtons Primary_Left_ClearFaults = JoystickButtons.Button6;
-        public static JoystickButtons Primary_Left_GyroReset = JoystickButtons.Button7;
-        public static JoystickButtons Primary_Left_ToggleFieldCentric = JoystickButtons.Button11;
+        public const JoystickButtons Primary_Left_DriveReduction = JoystickButtons.Trigger;
+        public const JoystickButtons Primary_Left_Output = JoystickButtons.Button2;
+        public const JoystickButtons Primary_Left_AlignCenter = JoystickButtons.Button3;
+        public const JoystickButtons Primary_Left_AlignLeft = JoystickButtons.Button4;
+        public const JoystickButtons Primary_Left_AlignRight = JoystickButtons.Button5;
+        public const JoystickButtons Primary_Left_ClearFaults = JoystickButtons.Button6;
+        public const JoystickButtons Primary_Left_GyroReset = JoystickButtons.Button7;
+        public const JoystickButtons Primary_Left_ToggleFieldCentric = JoystickButtons.Button11;
 
         //Primary Driver Right Button Controls
-        public static JoystickButtons Primary_Right_ToteRamp = JoystickButtons.Trigger;
-        public static JoystickButtons Primary_Right_Strafe_Down = JoystickButtons.Button2;
-        public static JoystickButtons Primary_Right_Strafe_Up = JoystickButtons.Button3;
-        public static JoystickButtons Primary_Right_Strafe_Right = JoystickButtons.Button5;
-        public static JoystickButtons Primary_Right_Strafe_Left = JoystickButtons.Button4;
+        public const JoystickButtons Primary_Right_ToteRamp = JoystickButtons.Trigger;
+        public const JoystickButtons Primary_Right_Strafe_Down = JoystickButtons.Button2;
+        public const JoystickButtons Primary_Right_Strafe_Up = JoystickButtons.Button3;
+        public const JoystickButtons Primary_Right_Strafe_Right = JoystickButtons.Button5;
+        public const JoystickButtons Primary_Right_Strafe_Left = JoystickButtons.Button4;
 
         //Primary Driver Axis Controls
-        public static JoystickAxes Primary_Drive_Strafe = JoystickAxes.X;
-        public static JoystickAxes Primary_Drive_ForwardBack = JoystickAxes.Y;
-        public static JoystickAxes Primary_Drive_R = JoystickAxes.X;
+        public const JoystickAxes Primary_Drive_Strafe = JoystickAxes.X;
+        public const JoystickAxes Primary_Drive_ForwardBack = JoystickAxes.Y;
+        public const JoystickAxes Primary_Drive_R = JoystickAxes.X;
 
         //Secondary Driver Button Controls
-        public static XboxButtons Secondary_AutoStack = XboxButtons.A;
-        public static XboxButtons Secondary_ArmUp = XboxButtons.Right_Bumper;
-        public static XboxButtons Secondary_ManualArmEnable = XboxButtons.Start;
-        public static XboxButtons Secondary_ManualElevatorEnable = XboxButtons.Back;
-        public static XboxButtons Secondary_ClawOpen = XboxButtons.X;
-        public static XboxButtons Secondary_Reset = XboxButtons.Y;
-        public static XboxButtons Secondary_Pause = XboxButtons.B;
-        public static XboxButtons Secondary_CanBurglar = XboxButtons.Left_Joystick;
+        public const XboxButtons Secondary_AutoStack = XboxButtons.A;
+        public const XboxButtons Secondary_ArmUp = XboxButtons.Right_Bumper;
+        public const XboxButtons Secondary_ManualArmEnable = XboxButtons.Start;
+        public const XboxButtons Secondary_ManualElevatorEnable = XboxButtons.Back;
+        public const XboxButtons Secondary_ClawOpen = XboxButtons.X;
+        public const XboxButtons Secondary_Reset = XboxButtons.Y;
+        public const XboxButtons Secondary_Pause = XboxButtons.B;
+        public const XboxButtons Secondary_CanBurglar = XboxButtons.Left_Joystick;
 
         //Secondary Driver Axis Controls
-        public static XboxAxes Secondary_ManualArm = XboxAxes.Left_X;
-        public static XboxAxes Secondary_ManualElevator = XboxAxes.Right_Y;
+        public const XboxAxes Secondary_ManualArm = XboxAxes.Left_X;
+        public const XboxAxes Secondary_ManualElevator = XboxAxes.Right_Y;
 
         //Misc Variables
-
-        public static double UltraScaling = 0.0049;
+        public const double UltraScaling = 0.0049;
 
         //Drive Variables
-        public static double DriveAccelLimit = 0.2;
-        public static double DriveTurnP = 0.02;
-        public static double DriveTurnD = 0;
-        public static double DriveAlignBackP = 0.02;
-        public static double DriveAlignBackD = 0;
-        public static double DriveAlignBackSetLoad = 83;
-        public static double DriveAlignBackSetNoodle = 40;
-        public static double DriveAlignSideP = 0.02;
-        public static double DriveAlignSideD = 0;
-        public static double DriveAlignSideSetpoint = 46;
-        public static double DriveStrafeButtonSpeed = 0.75;
-        public static double DriveForwardButtonSpeed = 0.5;
+        public const double Drive_AccelLimit = 0.2;
+        public const double Drive_TurnP = 0.02;
+        public const double Drive_TurnD = 0;
+        public const double Drive_AlignBackP = 0.02;
+        public const double Drive_AlignBackD = 0;
+        public const double Drive_AlignBackSetLoad = 83;
+        public const double Drive_AlignBackSetNoodle = 40;
+        public const double Drive_AlignSideP = 0.02;
+        public const double Drive_AlignSideD = 0;
+        public const double Drive_AlignSideSetpoint = 46;
+        public const double Drive_StrafeButtonSpeed = 0.75;
+        public const double Drive_ForwardButtonSpeed = 0.5;
 
         //Conveyor Variables
-        public static double Conveyor_OutputSpeed = 0.5;
-        public static double Conveyor_InSpeed = 0.1;
-        public static double Conveyor_OutSpeed = 0.1;
+        public const double Conveyor_OutputSpeed = 0.5;
+        public const double Conveyor_InSpeed = 0.1;
+        public const double Conveyor_OutSpeed = 0.1;
 
         //Lift Setpoints
-        private static double LiftPickupLoc = 0.062;
-        private static double LiftBottomLoc = 0.026;
-        private static double LiftStabilizeLoc = 0.125;
-        private static double LiftHighLoc = 0.41;
-        private static double LiftFirstLoc = 0.25;
+        private const double LiftPickupLoc = 0.062;
+        private const double LiftBottomLoc = 0.026;
+        private const double LiftStabilizeLoc = 0.125;
+        private const double LiftHighLoc = 0.41;
+        private const double LiftFirstLoc = 0.25;
 
-        public static Dictionary<SubSystems.ElevatorLocation, double> LiftLocations = new Dictionary<SubSystems.ElevatorLocation, double>();
+        public static Dictionary<SubSystems.ElevatorLocation, double> Lift_Locations = new Dictionary<SubSystems.ElevatorLocation, double>();
 
         public static void initLiftLocations()
         {
-            LiftLocations.Add(SubSystems.ElevatorLocation.Pickup, LiftPickupLoc);
-            LiftLocations.Add(SubSystems.ElevatorLocation.Bottom, LiftBottomLoc);
-            LiftLocations.Add(SubSystems.ElevatorLocation.Stabilize, LiftStabilizeLoc);
-            LiftLocations.Add(SubSystems.ElevatorLocation.High, LiftHighLoc);
-            LiftLocations.Add(SubSystems.ElevatorLocation.First_Tote, LiftFirstLoc);
+            Lift_Locations.Add(SubSystems.ElevatorLocation.Pickup, LiftPickupLoc);
+            Lift_Locations.Add(SubSystems.ElevatorLocation.Bottom, LiftBottomLoc);
+            Lift_Locations.Add(SubSystems.ElevatorLocation.Stabilize, LiftStabilizeLoc);
+            Lift_Locations.Add(SubSystems.ElevatorLocation.High, LiftHighLoc);
+            Lift_Locations.Add(SubSystems.ElevatorLocation.First_Tote, LiftFirstLoc);
         }
 
         //Lift Variables
-        public static double LiftLimitHigh = 0.5;
-        public static double LiftLimitLow = 0.025;
-        public static double LiftP = 8;
-        public static double LiftD = 0;
-        public static double LiftPosnTolerance = 0.04;
+        public const double Lift_LimitHigh = 0.5;
+        public const double Lift_LimitLow = 0.025;
+        public const double Lift_P = 8;
+        public const double Lift_D = 0;
+        public const double Lift_PosnTolerance = 0.04;
 
         //Arm Setpoints
-        private static double ArmLowLoc = 0.623;
-        private static double ArmHighLoc = 0.257;
-        private static double ArmReleaseLoc = 0.18;
+        private const double ArmLowLoc = 0.623;
+        private const double ArmHighLoc = 0.257;
+        private const double ArmReleaseLoc = 0.18;
 
         public static Dictionary<SubSystems.ArmLocation, double> ArmLocations = new Dictionary<SubSystems.ArmLocation, double>();
 
@@ -149,10 +148,10 @@ namespace Iterative_Robot
         }
 
         //Arm Variables
-        public static double ArmLimitLow = 0.18;
-        public static double ArmLimitHigh = 0.65;
-        public static double ArmP = 5.5;
-        public static double ArmD = 0;
-        public static double ArmPosnTolerance = 0.05;
+        public const double Arm_LimitLow = 0.18;
+        public const double Arm_LimitHigh = 0.65;
+        public const double Arm_P = 5.5;
+        public const double Arm_D = 0;
+        public const double Arm_PosnTolerance = 0.05;
     }
 }
