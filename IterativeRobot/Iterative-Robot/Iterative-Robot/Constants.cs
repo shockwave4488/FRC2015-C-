@@ -14,6 +14,12 @@ namespace Iterative_Robot
     /// </summary>
     static class Constants
     {
+        static Constants()
+        {
+            initLiftLocations();
+            initArmLocations();
+        }
+
         //PWM Channels
         public const int ChannelPWM_DriveLF = 0;
         public const int ChannelPWM_DriveLR = 1;

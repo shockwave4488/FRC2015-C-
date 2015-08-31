@@ -45,6 +45,7 @@ namespace Iterative_Robot.Systems
                 case RobotStates.Stack:
                     stacker.state = StackerState.AlignTote;
                     drive.AlignLoad = true;
+                    break;
             }
         }
     }

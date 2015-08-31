@@ -35,17 +35,12 @@ namespace Iterative_Robot
          */
         public override void RobotInit()
         {
-            Constants.initArmLocations();
-            Constants.initLiftLocations();
             AutonDriveWait = new SWave_WaitByCallCount(75);
 
             joysticks = new Joysticks();
             drive = new SmartDrive();
-
             stacker = new Stacker();
-
             canburglar = new CanBurglar();
-
             compressor = new Compressor();
 
             compressor.Start();
